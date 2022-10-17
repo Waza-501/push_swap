@@ -1,14 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   push_swap_utils.c                                  :+:    :+:            */
+/*   input_check_utils.c                                :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/13 12:06:45 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/10/17 11:49:21 by ohearn        ########   odam.nl         */
+/*   Created: 2022/10/17 12:26:02 by ohearn        #+#    #+#                 */
+/*   Updated: 2022/10/17 14:38:41 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+
+int	symbol_check(char c)
+{
+	return (c == '+' || c == '-');
+}
+
+int	isdigit(int c)
+{
+	return (c >= '0' && c <= '9');
+}
+
+int 
