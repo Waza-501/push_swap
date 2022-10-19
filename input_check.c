@@ -6,31 +6,74 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/12 15:28:01 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/10/17 14:59:18 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/10/19 16:56:53 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static int	valid_input(char **av)
+{
+	int		index;
+
+	index = 0;
+	if (symbol_check(av[index]) && av[index + 1] != '\0')
+		index++;
+	while (av[index] && isdigit(av[index]))
+		index++;
+	if (av[index] != '\0' && !isdigit (av[index]))
+		return (EXIT_ERROR);
+	return (VALID);
+}
+
+static int iszero(char **av)
+{
+	int	index;
+
+	index = 0;
+	if (symbol_check(av[index]))
+		index++;
+	while (av[index] && av[index] == '0')
+		index++;
+	if (av[index] != '\0')
+		return (EXIT_NULL);
+	return (EXIT_ONE);
+}
+
+static int	duplicate_check(char **av)
+{
+	int i;
+	int	c;
+
+	i = 1;
+	while (av[i])
+	{
+		c = 1;
+		while (av[c])
+		{
+			comparison_check(av[i], av[c] == 0);
+			c++;
+		}
+		i++;
+	}
+}
+
 int	input_check(char **av)
 {
 	int		cntr;
-	int		temp;
+	int		zero;
 
 	cntr = 0;
 	while (av[cntr])
 	{
 		if (!valid_input(av[cntr]))
 			return (EXIT_NULL);
+		zero += iszero(av[cntr]);
+		cntr++;
 	}
+	if (zero > 1)
+		return (EXIT_NULL);
+	if (duplicate_check(av))
+		return (EXIT_NULL);
+	return (VALID);
 }
-
-static int	valid_input(char **av)
-{
-	int		index;
-	if (symbol_check(av[index]) && av[index] != '\0')
-		index++;
-	
-
-}
-

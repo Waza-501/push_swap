@@ -6,14 +6,13 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/17 12:26:02 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/10/17 14:38:41 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/10/19 16:41:07 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-int	symbol_check(char c)
+int	symbol_check(int c)
 {
 	return (c == '+' || c == '-');
 }
@@ -23,4 +22,39 @@ int	isdigit(int c)
 	return (c >= '0' && c <= '9');
 }
 
-int 
+int	zero_counter(const char *string)
+{
+	int	index;
+	int	symbol;
+
+	index = 0;
+	symbol = 0;
+	if (symbol_check(string[index]))
+		index++;
+		symbol++;
+	while (string[index] && string[index] == '0')
+		index++;
+	return (index - symbol);
+}
+
+int	comparison_check(const char *s1, const char *s2)
+{
+	int	i;
+	int	c;
+
+	i = 0;
+	c = 0;
+	if (av[i] == '+' && s2[c] != '+')
+		i++;
+	else
+		if (s2[c] == '+')
+			c++;
+	i += zero_counter(*s1);
+	c += zero_counter(*s2);
+	while (s1[i] != '\0' && s2[c] != '\0' && s1[i] == s2[c])
+	{
+		i++;
+		c++;
+	}
+	return ((unsigned char)s1[i] - (unsigned char)s2[c]);
+}
