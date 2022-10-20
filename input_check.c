@@ -6,7 +6,7 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/12 15:28:01 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/10/20 17:16:46 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/10/20 18:45:53 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ static int	valid_input(char *av)
 		index++;
 	while (av[index] && is_digit(av[index]))
 		index++;
-	ft_printf("%d\n", index);
 	if (av[index] != '\0' && !is_digit(av[index]))
 		return (EXIT_ERROR);
 	return (VALID);
