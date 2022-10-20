@@ -6,14 +6,14 @@
 #    By: ohearn <ohearn@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/08/18 12:08:43 by ohearn        #+#    #+#                  #
-#    Updated: 2022/08/18 12:55:39 by ohearn        ########   odam.nl          #
+#    Updated: 2022/10/20 17:21:16 by ohearn        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	libftlite.a
-CC				=	gcc
+CC				=	@gcc
 CFLAGS			=	-Wall -Werror -Wextra -c
-AR				=	ar rcs
+AR				=	@ar rcs
 SRCS			=	fc_putchar.c\
 					fc_putstr.c\
 					fc_putnbr.c\

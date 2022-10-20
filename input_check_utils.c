@@ -6,18 +6,18 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/17 12:26:02 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/10/19 16:41:07 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/10/20 15:25:08 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	symbol_check(int c)
+int	symbol_check(char c)
 {
 	return (c == '+' || c == '-');
 }
 
-int	isdigit(int c)
+int	is_digit(char c)
 {
 	return (c >= '0' && c <= '9');
 }
@@ -44,13 +44,13 @@ int	comparison_check(const char *s1, const char *s2)
 
 	i = 0;
 	c = 0;
-	if (av[i] == '+' && s2[c] != '+')
+	if (s1[i] == '+' && s2[c] != '+')
 		i++;
 	else
 		if (s2[c] == '+')
 			c++;
-	i += zero_counter(*s1);
-	c += zero_counter(*s2);
+	i += zero_counter(s1);
+	c += zero_counter(s2);
 	while (s1[i] != '\0' && s2[c] != '\0' && s1[i] == s2[c])
 	{
 		i++;

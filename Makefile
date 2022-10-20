@@ -6,17 +6,19 @@
 #    By: ohearn <ohearn@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/11 16:37:46 by ohearn        #+#    #+#                  #
-#    Updated: 2022/10/13 15:28:51 by ohearn        ########   odam.nl          #
+#    Updated: 2022/10/20 17:21:11 by ohearn        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			=	push_swap.a
-CC				=	@gcc
-CFLAGS			=	-Wall -Werror -Wextra
-AR				=	@rcs
-SRCS			=	\
+NAME			=	push_swap
+CC				=	gcc
+CFLAGS			=	-Wall -Wextra
+SRCS			=	input_check.c\
+					input_check_utils.c\
+					error_handling.c\
+					main.c\
 
-FT_PRINTF		=	ft_printf/printf.a
+FT_PRINTF		=	ft_printf/ft_printf.a
 OBJECTS			=	$(SRCS:%.c=%.o)
 
 all:			$(NAME)
@@ -24,19 +26,16 @@ all:			$(NAME)
 $(FT_PRINTF):
 				make -C ft_printf
 $(NAME):		$(OBJECTS) $(FT_PRINTF)
-				$(AR) $(NAME) $(OBJECTS)
-				ar -q $(FT_PRINTF) $(NAME)
-				cp $(FT_PRINTF) $(NAME)
+				$(CC) $(CFLAGS) $(OBJECTS) -g -o $(NAME) $(FT_PRINTF)
 
-$(OBJECTS)		$(SRCS)
-					$(CC) $(CFLAGS) $(SRCS)
+clean:			
+				rm -rf $(OBJECTS)
+				@make clean -C ./ft_printf
 
-clean:			rm -rf $(OBJECTS)
-				make clean -C ./ft_printf
-
-fclean:			rm -rf $(OBJECTS)
+fclean:			
+				rm -rf $(OBJECTS)
 				rm -rf $(NAME)
-				make fclean -C ./ft_printf
+				@make fclean -C ./ft_printf
 
 re:				fclean all
 

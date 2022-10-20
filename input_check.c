@@ -6,27 +6,28 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/12 15:28:01 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/10/19 16:56:53 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/10/20 17:16:46 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	valid_input(char **av)
+static int	valid_input(char *av)
 {
 	int		index;
 
 	index = 0;
 	if (symbol_check(av[index]) && av[index + 1] != '\0')
 		index++;
-	while (av[index] && isdigit(av[index]))
+	while (av[index] && is_digit(av[index]))
 		index++;
-	if (av[index] != '\0' && !isdigit (av[index]))
+	ft_printf("%d\n", index);
+	if (av[index] != '\0' && !is_digit(av[index]))
 		return (EXIT_ERROR);
 	return (VALID);
 }
 
-static int iszero(char **av)
+static int	iszero(char *av)
 {
 	int	index;
 
@@ -42,7 +43,7 @@ static int iszero(char **av)
 
 static int	duplicate_check(char **av)
 {
-	int i;
+	int	i;
 	int	c;
 
 	i = 1;
@@ -51,11 +52,13 @@ static int	duplicate_check(char **av)
 		c = 1;
 		while (av[c])
 		{
-			comparison_check(av[i], av[c] == 0);
+			if (c != i && comparison_check(av[i], av[c]) == 0)
+				return (EXIT_ONE);
 			c++;
 		}
 		i++;
 	}
+	return (EXIT_NULL);
 }
 
 int	input_check(char **av)
@@ -63,7 +66,8 @@ int	input_check(char **av)
 	int		cntr;
 	int		zero;
 
-	cntr = 0;
+	cntr = 1;
+	zero = 0;
 	while (av[cntr])
 	{
 		if (!valid_input(av[cntr]))
