@@ -6,7 +6,7 @@
 #    By: ohearn <ohearn@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/11 16:37:46 by ohearn        #+#    #+#                  #
-#    Updated: 2022/10/20 17:21:11 by ohearn        ########   odam.nl          #
+#    Updated: 2022/10/26 17:44:40 by ohearn        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ SRCS			=	input_check.c\
 					input_check_utils.c\
 					error_handling.c\
 					main.c\
+					utils.c\
+					genesis.c\
 
 FT_PRINTF		=	ft_printf/ft_printf.a
 OBJECTS			=	$(SRCS:%.c=%.o)
