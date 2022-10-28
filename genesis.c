@@ -6,7 +6,7 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/13 11:54:43 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/10/26 17:46:12 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/10/28 15:45:32 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ t_stack	*fill_stack(int ac, char **av)
 			a = new_stack(nmb);
 		else
 			ft_lstadd_back(&a, new_stack(nmb));
+		idx++
 	}
 	return (a);
 }
