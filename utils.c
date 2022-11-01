@@ -6,7 +6,7 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 11:22:39 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/10/26 17:43:29 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/11/01 15:25:23 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,43 +36,37 @@ int	ft_atoi(const char *str)
 
 t_stack	*new_stack(int value)
 {
-	t_stack		*head;
+	t_stack		*new;
 
-	head = (t_stack *)malloc(sizeof(t_stack));
-	if (!head)
+	new = (t_stack *)malloc(sizeof(t_stack));
+	if (!new)
 		return (NULL);
-	head->value = value;
-	head->index = 0;
-	head->pos = -1;
-	head->target_pos = -1;
-	head->cost_a = -1;
-	head->cost_b = -1;
-	head->next = NULL;
-	return (head);
+	new->value = value;
+	new->index = 0;
+	new->pos = -1;
+	new->target_pos = -1;
+	new->next = NULL;
+	return (new);
 }
 
-t_stack	*ft_lstlast(t_stack *lst)
+t_stack	*search_last(t_stack *stack)
 {
-	if (!lst)
-		return (NULL);
-	while (lst->next != NULL)
-		lst = lst->next;
-	return (lst);
+	while (stack && stack->next != NULL )
+		stack = stack->next;
+	return (stack);
 }
 
-
-void	ft_lstadd_back(t_stack **lst, t_stack *new)
+void	*add_end(t_stack **stack, t_stack *new)
 {
 	t_stack	*tail;
 
-	if (!lst || !new)
+	if (!stack || !new)
 		return ;
-	if (!*lst)
+	if (*stack)
 	{
-		*lst = new;
+		*stack = new;
 		return ;
 	}
-	tail = ft_lstlast(*lst);
+	tail = search_last(*stack);
 	tail->next = new;
 }
-

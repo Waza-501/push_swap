@@ -6,7 +6,7 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/12 13:34:46 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/10/26 17:26:30 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/11/01 14:57:45 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,8 @@ typedef struct s_stack
 	int				index;
 	int				pos;
 	int				target_pos;
-	int				cost_a;
-	int				cost_b;
 	struct s_stack	*next;
+	struct s_stack	*prev;
 }				t_stack;
 
 int			input_check(char **av);
@@ -39,6 +38,6 @@ int			comparison_check(const char *s1, const char *s2);
 int			ft_atoi(const char *str);
 t_stack		*new_stack(int value);
 t_stack		*fill_stack(int ac, char **av);
-void		ft_lstadd_back(t_stack **lst, t_stack *new);
+void		*add_end(t_stack **stack, t_stack *new);
 
 #endif
