@@ -6,7 +6,14 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 14:47:26 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/10/28 14:47:34 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/11/04 19:40:29 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
+
+void    rotate(t_stack **stack)
+{
+    
+}
 
