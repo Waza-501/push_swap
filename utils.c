@@ -6,7 +6,7 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 11:22:39 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/11/01 15:25:23 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/11/16 17:21:31 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ t_stack	*new_stack(int value)
 	new->pos = -1;
 	new->target_pos = -1;
 	new->next = NULL;
+	new->prev = NULL;
 	return (new);
 }
 
@@ -62,11 +63,7 @@ void	*add_end(t_stack **stack, t_stack *new)
 
 	if (!stack || !new)
 		return ;
-	if (*stack)
-	{
-		*stack = new;
-		return ;
-	}
 	tail = search_last(*stack);
 	tail->next = new;
+	new->prev = tail;
 }
