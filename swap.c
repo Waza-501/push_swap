@@ -6,16 +6,17 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 14:47:30 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/11/24 16:26:32 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/11/25 12:18:40 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    swap(t_stack **stack)
+void    swap(t_stack *stack)
 {
     if (stack == NULL || stack->next == NULL)
         return ;
+    
 }
 
 void    swap_a(t_stack **a)

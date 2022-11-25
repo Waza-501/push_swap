@@ -6,7 +6,7 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/12 13:34:46 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/11/01 14:57:45 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/11/25 11:49:46 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ int			ft_atoi(const char *str);
 t_stack		*new_stack(int value);
 t_stack		*fill_stack(int ac, char **av);
 void		*add_end(t_stack **stack, t_stack *new);
+int			stack_size(t_stack *stack);
 
 #endif
