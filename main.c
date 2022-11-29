@@ -6,11 +6,12 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/12 15:33:49 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/11/25 12:09:17 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/11/29 12:01:16 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <unistd.h>
 #include <string.h>
 
 int	main(int ac, char **av)

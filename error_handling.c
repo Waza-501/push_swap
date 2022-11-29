@@ -6,13 +6,13 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/13 10:58:19 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/10/20 15:25:39 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/11/29 11:59:36 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 int	error_handling(t_stack **a, t_stack **b)
 {
@@ -20,7 +20,7 @@ int	error_handling(t_stack **a, t_stack **b)
 		free_stack(a);
 	if (b == NULL)
 		free_stack(b);
-	ft_printf("Error\n");
+	write(2, "Error\n", 6);
 	exit(1);
 }
 

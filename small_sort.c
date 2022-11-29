@@ -6,7 +6,14 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 14:47:28 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/10/28 14:47:33 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/11/29 20:15:15 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
+void	small_sort(t_stack **stack)
+{
+	int	top;
+
+	

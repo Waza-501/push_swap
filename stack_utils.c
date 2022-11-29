@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   .c                                                 :+:    :+:            */
+/*   stack_utils.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/13 11:54:43 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/11/25 11:17:32 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/11/29 12:03:02 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 #include <limits.h>
 
 int	stack_size(t_stack *stack)
@@ -28,25 +29,20 @@ int	stack_size(t_stack *stack)
 	return (size);
 }
 
-t_stack	*fill_stack(int ac, char **av)
+t_stack	*search_last(t_stack *stack)
 {
-	t_stack		*a;
-	int			nmb;
-	int			idx;
+	while (stack && stack->next != NULL )
+		stack = stack->next;
+	return (stack);
+}
 
-	a = NULL;
-	nmb = 0;
-	idx = 1;
-	while (idx < ac)
-	{
-		nmb = ft_atoi(av[idx]);
-		if (nmb > INT_MAX || nmb < INT_MIN)
-			error_handling(&a, NULL);
-		if (idx == 1)
-			a = new_stack(nmb);
-		else
-			add_end(&a, new_stack(nmb));
-		idx++;
-	}
-	return (a);
+void	add_end(t_stack **stack, t_stack *new)
+{
+	t_stack	*tail;
+
+	if (!stack || !new)
+		return ;
+	tail = search_last(*stack);
+	tail->next = new;
+	new->prev = tail;
 }

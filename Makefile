@@ -6,38 +6,38 @@
 #    By: ohearn <ohearn@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/11 16:37:46 by ohearn        #+#    #+#                  #
-#    Updated: 2022/10/26 17:44:40 by ohearn        ########   odam.nl          #
+#    Updated: 2022/11/29 20:05:00 by ohearn        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			=	push_swap
 CC				=	gcc
-CFLAGS			=	-Wall -Wextra
-SRCS			=	input_check.c\
+CFLAGS			=	-Wall -Wextra -Werror
+SRCS			=	error_handling.c\
+					index_utils.c\
+					input_check.c\
 					input_check_utils.c\
-					error_handling.c\
 					main.c\
 					utils.c\
-					genesis.c\
+					stack_creation.c\
+					stack_utils.c\
+					push.c\
+					swap.c\
+					rotate.c\
 
-FT_PRINTF		=	ft_printf/ft_printf.a
 OBJECTS			=	$(SRCS:%.c=%.o)
 
 all:			$(NAME)
 
-$(FT_PRINTF):
-				make -C ft_printf
-$(NAME):		$(OBJECTS) $(FT_PRINTF)
-				$(CC) $(CFLAGS) $(OBJECTS) -g -o $(NAME) $(FT_PRINTF)
+$(NAME):		$(OBJECTS)
+				$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME)
 
 clean:			
 				rm -rf $(OBJECTS)
-				@make clean -C ./ft_printf
 
 fclean:			
 				rm -rf $(OBJECTS)
 				rm -rf $(NAME)
-				@make fclean -C ./ft_printf
 
 re:				fclean all
 

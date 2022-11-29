@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   fc_putchar.c                                       :+:    :+:            */
+/*   index_utils.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/08/17 17:00:26 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/08/18 12:45:46 by ohearn        ########   odam.nl         */
+/*   Created: 2022/11/29 10:20:37 by ohearn        #+#    #+#                 */
+/*   Updated: 2022/11/29 18:43:14 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftlite.h"
+#include "push_swap.h"
 
-int	fc_putchar(char c)
+int	find_top(t_stack *stack)
 {
-	int	tally;
+	int	idx;
 
-	tally = 0;
-	tally += write (1, &c, 1);
-	return (tally);
+	idx = stack->index;
+	while (stack)
+	{
+		if (stack->index > idx)
+			idx = stack->index;
+		stack = stack->next;
+	}
+	return (idx);
 }

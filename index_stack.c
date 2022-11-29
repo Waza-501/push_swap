@@ -6,12 +6,13 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/12 15:46:26 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/11/25 12:18:48 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/11/29 16:10:47 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <limits.h>
+#include <stdlib.h>
 
 t_stack	index_stack(t_stack *stack_a, int stack_size)
 {

@@ -6,7 +6,7 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/17 12:26:02 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/11/11 16:09:28 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/11/28 17:12:08 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,6 @@ int	comparison_check(const char *s1, const char *s2)
 
 	i = 0;
 	c = 0;
-	// if (s1[i] == '+' && s2[c] != '+')
-	// 	i++;
-	// else
-	// 	if (s2[c] == '+')
-	// 		c++;
-	// 
-	//Used to use this, but zero counter already has this built in and I no longer need it here.
 	i += zero_counter(s1);
 	c += zero_counter(s2);
 	while (s1[i] != '\0' && s2[c] != '\0' && s1[i] == s2[c])

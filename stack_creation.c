@@ -1,21 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   genesis.c                                          :+:    :+:            */
+/*   stack_creation.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/13 11:54:43 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/11/01 17:41:32 by ohearn        ########   odam.nl         */
+/*   Created: 2022/11/29 10:49:28 by ohearn        #+#    #+#                 */
+/*   Updated: 2022/11/29 10:58:34 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdlib.h>
 #include <limits.h>
 
-int	stack_size(t_stack *stack)
+t_stack	*new_stack(int value)
 {
-	
+	t_stack		*new;
+
+	new = (t_stack *)malloc(sizeof(t_stack));
+	if (!new)
+		return (NULL);
+	new->value = value;
+	new->index = 0;
+	new->pos = -1;
+	new->target_pos = -1;
+	new->next = NULL;
+	new->prev = NULL;
+	return (new);
 }
 
 t_stack	*fill_stack(int ac, char **av)

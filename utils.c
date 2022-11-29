@@ -6,11 +6,12 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 11:22:39 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/11/16 17:21:31 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/11/29 15:18:06 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <unistd.h>
 #include <stdlib.h>
 
 int	ft_atoi(const char *str)
@@ -34,36 +35,18 @@ int	ft_atoi(const char *str)
 	return (result * negative);
 }
 
-t_stack	*new_stack(int value)
+static int	ft_strlen(char *c)
 {
-	t_stack		*new;
+	int idx;
 
-	new = (t_stack *)malloc(sizeof(t_stack));
-	if (!new)
-		return (NULL);
-	new->value = value;
-	new->index = 0;
-	new->pos = -1;
-	new->target_pos = -1;
-	new->next = NULL;
-	new->prev = NULL;
-	return (new);
+	idx = 0;
+	while (c[idx])
+		idx++;
+	return (idx);
 }
 
-t_stack	*search_last(t_stack *stack)
+void	ft_putstr(char *str)
 {
-	while (stack && stack->next != NULL )
-		stack = stack->next;
-	return (stack);
-}
-
-void	*add_end(t_stack **stack, t_stack *new)
-{
-	t_stack	*tail;
-
-	if (!stack || !new)
-		return ;
-	tail = search_last(*stack);
-	tail->next = new;
-	new->prev = tail;
+	if (str)
+		write (1, str, ft_strlen(str));
 }

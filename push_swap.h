@@ -6,14 +6,13 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/12 13:34:46 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/11/25 11:49:46 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/11/29 20:05:23 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "ft_printf/ft_printf.h"
 # define EXIT_ERROR 0
 # define EXIT_NULL 0
 # define EXIT_ONE 1
@@ -29,6 +28,8 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }				t_stack;
 
+int			ft_atoi(const char *str);
+void		ft_putstr(char *str);
 int			input_check(char **av);
 int			error_handling(t_stack **a, t_stack **b);
 void		free_stack(t_stack **stack);
@@ -38,7 +39,9 @@ int			comparison_check(const char *s1, const char *s2);
 int			ft_atoi(const char *str);
 t_stack		*new_stack(int value);
 t_stack		*fill_stack(int ac, char **av);
-void		*add_end(t_stack **stack, t_stack *new);
+void		add_end(t_stack **stack, t_stack *new);
 int			stack_size(t_stack *stack);
+t_stack		*search_last(t_stack *stack);
+int			find_top(t_stack *stack);
 
 #endif

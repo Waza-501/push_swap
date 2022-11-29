@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   fc_print_dec.c                                     :+:    :+:            */
+/*   reverse_rotate.c                                   :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: owen <owen@student.codam.nl>                 +#+                     */
+/*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/08/17 11:59:42 by owen          #+#    #+#                 */
-/*   Updated: 2022/08/18 14:08:08 by ohearn        ########   odam.nl         */
+/*   Created: 2022/11/29 20:15:31 by ohearn        #+#    #+#                 */
+/*   Updated: 2022/11/29 20:18:32 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "push_swap.h"
+#include <stdio.h>
 
-int	fc_print_dec(unsigned int dec)
+static void reverse_rotate(t_stack **stack)
 {
-	int					size;
-	unsigned int		ret;
-
-	size = 0;
-	ret = (dec % 10);
-	if (dec > 9)
-		size += fc_print_dec(dec / 10);
-	size += fc_putchar((ret + '0'));
-	return (size);
+    
 }
