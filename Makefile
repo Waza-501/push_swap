@@ -6,7 +6,7 @@
 #    By: ohearn <ohearn@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/11 16:37:46 by ohearn        #+#    #+#                  #
-#    Updated: 2022/11/29 20:05:00 by ohearn        ########   odam.nl          #
+#    Updated: 2022/12/04 19:00:28 by ohearn        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRCS			=	error_handling.c\
 					push.c\
 					swap.c\
 					rotate.c\
+					reverse_rotate.c\
 
 OBJECTS			=	$(SRCS:%.c=%.o)
 

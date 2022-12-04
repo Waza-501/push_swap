@@ -6,11 +6,12 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/12 15:28:01 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/10/20 18:45:53 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/12/04 19:22:47 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 static int	valid_input(char *av)
 {
@@ -79,4 +80,15 @@ int	input_check(char **av)
 	if (duplicate_check(av))
 		return (EXIT_NULL);
 	return (VALID);
+}
+
+int	already_sorted(t_stack *stack)
+{
+	while (stack->next != NULL)
+	{
+		if (stack->value > stack->next->value)
+			return (EXIT_NULL);
+		stack = stack->next;
+	}
+	return (EXIT_ONE);
 }

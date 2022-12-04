@@ -6,14 +6,14 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 14:47:23 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/11/29 12:07:30 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/12/04 19:00:00 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-void	push(t_stack **src, t_stack **dst)
+static void	push(t_stack **src, t_stack **dst)
 {
 	t_stack	*temp;
 
