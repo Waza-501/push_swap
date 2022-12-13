@@ -6,7 +6,7 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/12 15:28:01 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/12/04 19:22:47 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/12/13 20:33:11 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,17 @@ static int	valid_input(char *av)
 static int	iszero(char *av)
 {
 	int	index;
+	int	symbol;
 
 	index = 0;
+	symbol = 0;
 	if (symbol_check(av[index]))
 		index++;
+		symbol++;
 	while (av[index] && av[index] == '0')
 		index++;
 	if (av[index] != '\0')
-		return (EXIT_NULL);
+		return (index - symbol);
 	return (EXIT_ONE);
 }
 
@@ -73,10 +76,10 @@ int	input_check(char **av)
 		if (!valid_input(av[cntr]))
 			return (EXIT_NULL);
 		zero += iszero(av[cntr]);
+		if (zero > 1)
+			return (EXIT_NULL);
 		cntr++;
 	}
-	if (zero > 1)
-		return (EXIT_NULL);
 	if (duplicate_check(av))
 		return (EXIT_NULL);
 	return (VALID);

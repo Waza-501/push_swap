@@ -6,7 +6,7 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/17 12:26:02 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/11/28 17:12:08 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/12/13 20:31:36 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	zero_counter(const char *string)
 		symbol++;
 	while (string[index] && string[index] == '0')
 		index++;
-	return (index);
+	return (index - symbol);
 }
 
 int	comparison_check(const char *s1, const char *s2)
@@ -44,6 +44,16 @@ int	comparison_check(const char *s1, const char *s2)
 
 	i = 0;
 	c = 0;
+	if (s1[i] == '+')
+		{
+			if (s2[c] != '+')
+				i++;
+		}
+	else 
+	{
+		if (s2[c] == '+')
+			c++;
+	}
 	i += zero_counter(s1);
 	c += zero_counter(s2);
 	while (s1[i] != '\0' && s2[c] != '\0' && s1[i] == s2[c])

@@ -6,34 +6,41 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/12 15:33:49 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/12/04 19:48:51 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/12/13 16:50:28 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
 
-void	free_stack(t_stack **stack_a, t_stack **stack_b)
+void	free_stack(t_stack **stack)
 {
 	t_stack		*temp;
 
-	// if (!stack || !(*stack))
-	// 	return ;
-	while (*stack_a)
+	if (!stack || !(*stack))
+		return ;
+	while (*stack)
 	{
-		temp = (*stack_a)->next;
-		free(*stack_a);
-		*stack_a = temp;
+		temp = (*stack)->next;
+		free(*stack);
+		*stack = temp;
 	}
-	*stack_a = NULL;
-	while (*stack_b)
-	{
-		temp = (*stack_b)->next;
-		free(*stack_b);
-		*stack_b = temp;
-	}
-	*stack_b = NULL;
+	*stack = NULL;
+}
+
+void	push_swap(t_stack **a,t_stack **b, int size)
+{
+	if (size == 2 && !already_sorted(*a))
+		swap_a(a);
+	else if (size == 3)
+		sort_three(a);
+	else if (size == 5)
+		small_sort(a, b);
+	else if (size > 5 && !already_sorted(*a))
+		return ;
+	
 }
 
 int	main(int ac, char **av)
@@ -46,16 +53,12 @@ int	main(int ac, char **av)
 		return (0);
 	if (!input_check(av))
 		error_handling(NULL, NULL);
-	else
-		write (1, "Succes\n", 7);
 	b = NULL;
 	a = fill_stack(ac, av);
 	size = stack_size(a);
 	index_stack(a, size);
-	if (stack_size == 2 && !already_sorted(a))
-		swap_a(a);
-	if (stack_size == 3)
-		small
-	free_stack(a, b);
+	push_swap(&a, &b, size);
+	free_stack(&a);
+	free_stack(&b);
 	return (0);
 }

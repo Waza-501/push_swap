@@ -6,7 +6,7 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/12 15:46:26 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/11/29 16:10:47 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/12/13 13:55:54 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 #include <limits.h>
 #include <stdlib.h>
 
-t_stack	index_stack(t_stack *stack_a, int stack_size)
+void	index_stack(t_stack *stack_a, int stack_size)
 {
 	t_stack	*ptr;
 	t_stack	*top;
 	int		value;
 
-	while (--stack_size != NULL)
+	while (--stack_size > 0)
 	{
 		ptr = stack_a;
 		value = INT_MIN;
@@ -38,7 +38,7 @@ t_stack	index_stack(t_stack *stack_a, int stack_size)
 			else
 				ptr = ptr->next;
 		}
-	}
 	if (top != NULL)
 		top->index = stack_size;
+	}
 }

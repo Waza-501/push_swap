@@ -6,7 +6,7 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/12 13:34:46 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/12/04 19:30:36 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/12/13 16:50:46 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int			ft_atoi(const char *str);
 void		ft_putstr(char *str);
 int			input_check(char **av);
 int			error_handling(t_stack **a, t_stack **b);
-void		free_stack(t_stack **stack_a, t_stack **stack_b);
+void		free_stack(t_stack **stack);
 int			is_digit(char c);
 int			symbol_check(char c);
 int			comparison_check(const char *s1, const char *s2);
@@ -63,5 +63,8 @@ int			stack_size(t_stack *stack);
 t_stack		*search_last(t_stack *stack);
 int			find_top(t_stack *stack);
 int			already_sorted(t_stack *stack);
-t_stack		index_stack(t_stack *stack_a, int stack_size);
+void		index_stack(t_stack *stack_a, int stack_size);
+void		sort_three(t_stack **stack);
+void		small_sort(t_stack **a, t_stack **b);
+
 #endif
