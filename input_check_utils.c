@@ -6,7 +6,7 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/17 12:26:02 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/12/13 20:31:36 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/12/13 20:56:09 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ int	comparison_check(const char *s1, const char *s2)
 	i = 0;
 	c = 0;
 	if (s1[i] == '+')
-		{
-			if (s2[c] != '+')
-				i++;
-		}
-	else 
+	{
+		if (s2[c] != '+')
+			i++;
+	}
+	else
 	{
 		if (s2[c] == '+')
 			c++;
