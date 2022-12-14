@@ -6,7 +6,7 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/12 15:28:01 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/12/13 20:33:11 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/12/14 18:03:21 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static int	duplicate_check(char **av)
 		c = 1;
 		while (av[c])
 		{
-			if (c != i && comparison_check(av[i], av[c]) == 0)
+			if (c != i && comparison_check(av[i], av[c], 0, 0) == 0)
 				return (EXIT_ONE);
 			c++;
 		}
@@ -76,10 +76,10 @@ int	input_check(char **av)
 		if (!valid_input(av[cntr]))
 			return (EXIT_NULL);
 		zero += iszero(av[cntr]);
-		if (zero > 1)
-			return (EXIT_NULL);
 		cntr++;
 	}
+	if (zero > 1)
+		return (EXIT_NULL);
 	if (duplicate_check(av))
 		return (EXIT_NULL);
 	return (VALID);
