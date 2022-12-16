@@ -6,7 +6,7 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/12 15:33:49 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/12/13 16:50:28 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/12/16 19:47:26 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	free_stack(t_stack **stack)
 	*stack = NULL;
 }
 
-void	push_swap(t_stack **a,t_stack **b, int size)
+static void	push_swap(t_stack **a,t_stack **b, int size)
 {
 	if (size == 2 && !already_sorted(*a))
 		swap_a(a);
