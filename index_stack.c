@@ -6,13 +6,27 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/12 15:46:26 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/12/13 13:55:54 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/12/17 15:04:43 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <limits.h>
 #include <stdlib.h>
+
+int	find_top(t_stack *stack)
+{
+	int	idx;
+
+	idx = stack->index;
+	while (stack)
+	{
+		if (stack->index > idx)
+			idx = stack->index;
+		stack = stack->next;
+	}
+	return (idx);
+}
 
 void	index_stack(t_stack *stack_a, int stack_size)
 {
@@ -38,7 +52,7 @@ void	index_stack(t_stack *stack_a, int stack_size)
 			else
 				ptr = ptr->next;
 		}
-	if (top != NULL)
-		top->index = stack_size;
+		if (top != NULL)
+			top->index = stack_size;
 	}
 }

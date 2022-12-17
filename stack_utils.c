@@ -6,7 +6,7 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/13 11:54:43 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/11/29 12:03:02 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/12/17 14:15:26 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,4 @@ t_stack	*search_last(t_stack *stack)
 	while (stack && stack->next != NULL )
 		stack = stack->next;
 	return (stack);
-}
-
-void	add_end(t_stack **stack, t_stack *new)
-{
-	t_stack	*tail;
-
-	if (!stack || !new)
-		return ;
-	tail = search_last(*stack);
-	tail->next = new;
-	new->prev = tail;
 }

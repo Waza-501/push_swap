@@ -6,7 +6,7 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/12 13:34:46 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/12/14 18:04:16 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/12/17 21:09:04 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ typedef struct s_stack
 	int				index;
 	int				pos;
 	int				target_pos;
+	int				cost_a;
+	int				cost_b;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }				t_stack;
@@ -47,10 +49,14 @@ void		reverse_rotate_a(t_stack **a);
 void		reverse_rotate_b(t_stack **b);
 void		reverse_rotate_both(t_stack **a, t_stack **b);
 
+/*main*/
+int			error_handling(t_stack **a, t_stack **b);
+
+/*position*/
+void		get_target_pos(t_stack **a, t_stack **b);
 int			ft_atoi(const char *str);
 void		ft_putstr(char *str);
 int			input_check(char **av);
-int			error_handling(t_stack **a, t_stack **b);
 void		free_stack(t_stack **stack);
 int			is_digit(char c);
 int			symbol_check(char c);
@@ -65,6 +71,10 @@ int			find_top(t_stack *stack);
 int			already_sorted(t_stack *stack);
 void		index_stack(t_stack *stack_a, int stack_size);
 void		sort_three(t_stack **stack);
-void		small_sort(t_stack **a, t_stack **b);
+void		sort(t_stack **a, t_stack **b);
+void		get_cost(t_stack **a, t_stack **b, int size_a, int size_b);
+int			a_value(int nmb);
+void		optimal_move(t_stack **a, t_stack **b, int cost_a, int cost_b);
+void		find_optimal_move(t_stack **a, t_stack **b);
 
 #endif

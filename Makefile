@@ -6,7 +6,7 @@
 #    By: ohearn <ohearn@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/11 16:37:46 by ohearn        #+#    #+#                  #
-#    Updated: 2022/12/13 14:01:33 by ohearn        ########   odam.nl          #
+#    Updated: 2022/12/17 21:03:23 by ohearn        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,15 +14,16 @@ NAME			=	push_swap
 CC				=	gcc
 CFLAGS			=	-Wall -Wextra -Werror -g
 SRCS			=	main.c\
-					error_handling.c\
+					cost.c\
+					optimized_moves.c\
 					index_stack.c\
-					index_utils.c\
 					input_check.c\
 					input_check_utils.c\
 					utils.c\
 					stack_creation.c\
 					stack_utils.c\
-					small_sort.c\
+					position.c\
+					sort.c\
 					push.c\
 					swap.c\
 					rotate.c\

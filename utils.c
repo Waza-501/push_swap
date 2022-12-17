@@ -6,7 +6,7 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 11:22:39 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/11/29 15:18:06 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/12/17 20:03:34 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	ft_atoi(const char *str)
 
 static int	ft_strlen(char *c)
 {
-	int idx;
+	int	idx;
 
 	idx = 0;
 	while (c[idx])
@@ -49,4 +49,11 @@ void	ft_putstr(char *str)
 {
 	if (str)
 		write (1, str, ft_strlen(str));
+}
+
+int	a_value(int nmb)
+{
+	if (nmb < 0)
+		nmb *= -1;
+	return (nmb);
 }
