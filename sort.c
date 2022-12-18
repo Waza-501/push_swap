@@ -6,11 +6,12 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 14:47:28 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/12/17 21:09:19 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/12/18 11:54:37 by owen          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <limits.h>
 
 static void	sort_prep(t_stack **a, t_stack **b)
 {
@@ -43,6 +44,15 @@ void	sort_three(t_stack **stack)
 		swap_a(stack);
 }
 
+static void	shift_stack(t_stack **stack, int size)
+{
+	int	lowest_pos;
+
+	lowest_pos = get_lowest(stack);
+	
+	
+}
+
 void	sort(t_stack **a, t_stack **b)
 {
 	sort_prep(a, b);
@@ -53,4 +63,6 @@ void	sort(t_stack **a, t_stack **b)
 		get_cost(a, b, stack_size(*a), stack_size(*b));
 		find_optimal_move(a, b);
 	}
+	while (!already_sorted(a))
+		shift_stack(a, stack_size(*a));
 }

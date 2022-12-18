@@ -6,7 +6,7 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/12 13:34:46 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/12/17 21:09:04 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/12/18 11:54:06 by owen          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,6 @@ void		get_cost(t_stack **a, t_stack **b, int size_a, int size_b);
 int			a_value(int nmb);
 void		optimal_move(t_stack **a, t_stack **b, int cost_a, int cost_b);
 void		find_optimal_move(t_stack **a, t_stack **b);
+int			get_lowest(t_stack **stack);
 
 #endif
