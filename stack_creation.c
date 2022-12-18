@@ -6,7 +6,7 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/29 10:49:28 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/12/17 21:01:07 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/12/18 13:10:59 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ t_stack	*new_stack(int value)
 	new->index = 0;
 	new->pos = -1;
 	new->target_pos = -1;
-	new->cost_a = 0;
-	new->cost_b = 0;
+	new->cost_a = -1;
+	new->cost_b = -1;
 	new->next = NULL;
 	new->prev = NULL;
 	return (new);

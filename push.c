@@ -6,7 +6,7 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 14:47:23 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/12/04 19:00:00 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/12/18 13:06:19 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	push_a(t_stack **a, t_stack **b)
 	ft_putstr("pa\n");
 }
 
-void	push_b(t_stack **a, t_stack **b)
+void	push_b(t_stack **b, t_stack **a)
 {
 	push(a, b);
 	ft_putstr("pb\n");

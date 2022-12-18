@@ -6,7 +6,7 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/12 15:33:49 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/12/17 21:06:27 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/12/18 12:43:06 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,6 @@ static void	push_swap(t_stack **a, t_stack **b, int size)
 		sort_three(a);
 	else if (size > 3)
 		sort(a, b);
-	else if (size > 5 && !already_sorted(*a))
-		return ;
 }
 
 int	main(int ac, char **av)
