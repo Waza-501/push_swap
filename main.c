@@ -6,14 +6,13 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/12 15:33:49 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/12/20 16:27:28 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/12/20 17:07:45 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdlib.h>
 #include <unistd.h>
-#include <stdio.h>
 
 int	error_handling(t_stack **a, t_stack **b)
 {
