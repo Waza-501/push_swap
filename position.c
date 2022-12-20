@@ -6,7 +6,7 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/17 17:15:36 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/12/18 11:53:34 by owen          ########   odam.nl         */
+/*   Updated: 2022/12/20 16:25:43 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 static void	get_pos(t_stack **stack)
 {
-	t_stack *temp;
+	t_stack	*temp;
 	int		i;
 
 	temp = *stack;
@@ -52,7 +52,7 @@ int	get_lowest(t_stack **stack)
 
 static int	target(t_stack **a, int b_index, int target_index, int target_pos)
 {
-	t_stack *temp_a;
+	t_stack	*temp_a;
 
 	temp_a = *a;
 	while (temp_a)
@@ -66,6 +66,7 @@ static int	target(t_stack **a, int b_index, int target_index, int target_pos)
 	}
 	if (target_index != INT_MAX)
 		return (target_pos);
+	temp_a = *a;
 	while (temp_a)
 	{
 		if (temp_a->index < target_index)
@@ -73,13 +74,14 @@ static int	target(t_stack **a, int b_index, int target_index, int target_pos)
 			target_index = temp_a->index;
 			target_pos = temp_a->pos;
 		}
+		temp_a = temp_a->next;
 	}
 	return (target_pos);
 }
 
 void	get_target_pos(t_stack **a, t_stack **b)
 {
-	t_stack *temp_b;
+	t_stack	*temp_b;
 	int		target_pos;
 
 	temp_b = *b;

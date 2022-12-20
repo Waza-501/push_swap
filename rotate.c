@@ -6,7 +6,7 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 14:47:26 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/11/29 20:18:14 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/12/20 14:27:47 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ static void	rotate(t_stack **stack)
 	temp->next = NULL;
 	tail->next = temp;
 	temp->prev = tail;
+	(*stack)->prev = NULL;
 }
 
 void	rotate_a(t_stack **a)

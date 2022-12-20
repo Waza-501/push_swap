@@ -6,7 +6,7 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 14:47:28 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/12/18 13:39:37 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/12/20 16:24:49 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,17 @@ static void	sort_prep(t_stack **a, t_stack **b)
 	size = stack_size(*a);
 	moved = 0;
 	i = 0;
+	while (size > 6 && i < size && moved < size / 2)
+	{
+		if ((*a)->value <= size / 2)
+		{
+			push_b(b, a);
+			moved++;
+		}
+		else
+			rotate_a(a);
+		i++;
+	}
 	while (size - moved > 3)
 	{
 		push_b(b, a);
@@ -49,18 +60,22 @@ static void	shift_stack(t_stack **stack, int size)
 	int	lowest_pos;
 
 	lowest_pos = get_lowest(stack);
-	if (lowest_pos < size /2)
+	if (lowest_pos < size / 2)
+	{
 		while (lowest_pos != 0)
 		{
 			rotate_a(stack);
 			lowest_pos--;
 		}
+	}
 	else if (lowest_pos > size / 2)
+	{
 		while (lowest_pos != size)
 		{
 			reverse_rotate_a(stack);
 			lowest_pos++;
 		}
+	}
 }
 
 void	sort(t_stack **a, t_stack **b)
