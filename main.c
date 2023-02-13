@@ -6,7 +6,7 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/12 15:33:49 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/12/20 16:22:10 by ohearn        ########   odam.nl         */
+/*   Updated: 2022/12/20 16:27:28 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,6 @@ int	main(int ac, char **av)
 	size = stack_size(a);
 	index_stack(a, size);
 	push_swap(&a, &b, size);
-	while (a != NULL)
-	{
-		printf("%i\n", a->value);
-		a = a->next;
-	}
 	free_stack(&a);
 	free_stack(&b);
 	return (0);
