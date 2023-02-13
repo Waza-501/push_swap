@@ -6,11 +6,7 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 11:22:39 by ohearn        #+#    #+#                 */
-<<<<<<< HEAD
 /*   Updated: 2023/02/09 16:51:54 by ohearn        ########   odam.nl         */
-=======
-/*   Updated: 2022/12/17 20:03:34 by ohearn        ########   odam.nl         */
->>>>>>> 81ff3e71c844b22b1f2a516839df36004f4c17d3
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +14,10 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-<<<<<<< HEAD
 long int	ft_atoi(const char *str)
 {
 	long int	result;
 	int			negative;
-=======
-int	ft_atoi(const char *str)
-{
-	int	result;
-	int	negative;
->>>>>>> 81ff3e71c844b22b1f2a516839df36004f4c17d3
 
 	result = 0;
 	negative = 1;
