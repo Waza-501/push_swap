@@ -6,7 +6,7 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/12 15:33:49 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/12/20 16:27:28 by ohearn        ########   odam.nl         */
+/*   Updated: 2023/03/15 10:37:44 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,9 @@ void	free_stack(t_stack **stack)
 
 static void	push_swap(t_stack **a, t_stack **b, int size)
 {
-	if (size == 2 && !already_sorted(*a))
+	if (already_sorted(*a))
+		return ;
+	else if (size == 2 && !already_sorted(*a))
 		swap_a(a);
 	else if (size == 3)
 		sort_three(a);

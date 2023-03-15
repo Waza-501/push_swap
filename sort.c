@@ -6,7 +6,7 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 14:47:28 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/12/20 16:24:49 by ohearn        ########   odam.nl         */
+/*   Updated: 2023/03/15 10:47:06 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static void	shift_stack(t_stack **stack, int size)
 	int	lowest_pos;
 
 	lowest_pos = get_lowest(stack);
-	if (lowest_pos < size / 2)
+	if (lowest_pos <= size / 2)
 	{
 		while (lowest_pos != 0)
 		{
