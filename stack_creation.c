@@ -6,7 +6,7 @@
 /*   By: ohearn <ohearn@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/29 10:49:28 by ohearn        #+#    #+#                 */
-/*   Updated: 2022/12/18 13:10:59 by ohearn        ########   odam.nl         */
+/*   Updated: 2023/03/15 12:46:03 by ohearn        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	add_end(t_stack **stack, t_stack *new)
 t_stack	*fill_stack(int ac, char **av)
 {
 	t_stack		*a;
-	int			nmb;
+	long int	nmb;
 	int			idx;
 
 	a = NULL;
