@@ -6,7 +6,7 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/06 13:50:39 by owen          #+#    #+#                 */
-/*   Updated: 2025/01/08 12:11:04 by owen          ########   odam.nl         */
+/*   Updated: 2025/01/08 14:25:32 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 /*This function is used to set up a 
 new node with the content of argv[idx]*/
-t_stack *fill_stack(int content)
+t_stack	*fill_stack(int content)
 {
 	t_stack		*new;
 
@@ -31,8 +31,9 @@ t_stack *fill_stack(int content)
 	new->prev = NULL;
 	return (new);
 }
+
 /*placeholder function to init a stack*/
-t_stack *init_stack(void)
+t_stack	*init_stack(void)
 {
 	t_stack		*new;
 

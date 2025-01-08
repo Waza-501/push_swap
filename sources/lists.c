@@ -6,7 +6,7 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/08 12:06:09 by owen          #+#    #+#                 */
-/*   Updated: 2025/01/08 12:20:02 by owen          ########   odam.nl         */
+/*   Updated: 2025/01/08 14:24:43 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_stack	*ps_lstlast(t_stack *lst)
 		lst = lst->next;
 	return (lst);
 }
+
 void	ps_lstadd_back(t_stack **lst, t_stack *new)
 {
 	if (!lst && !new)

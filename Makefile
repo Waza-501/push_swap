@@ -10,6 +10,8 @@ LIBFT 			:= $(addprefix $(LIBFT_FOLDER), $(LIBFT_NAME))
 SOURCES_DIR		:=	sources/
 SOURCES			:=	atoi2.c\
 					error_handling.c\
+					free.c\
+					input_check.c\
 					input_handling.c\
 					lists.c\
 					push_swap.c\

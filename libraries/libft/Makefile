@@ -32,8 +32,7 @@ SRCS	=		ft_atoi.c\
 				ft_substr.c\
 				ft_tolower.c\
 				ft_toupper.c\
-
-BONUS_SRCS	=	ft_lstnew.c\
+				ft_lstnew.c\
 				ft_lstadd_front.c\
 				ft_lstsize.c\
 				ft_lstlast.c\
@@ -49,21 +48,14 @@ CC		=	cc
 CFLAGS	=	-Wall -Werror -Wextra -c
 AR		=	@ar rcs
 OBJS	=	$(SRCS:%.c=%.o)
-BONUS	=	$(BONUS_SRCS:%.c=%.o)
 
 all:		$(NAME)
-			$(info Finished compiling libft functions!)
+			$(info Finished compiling libft!)
 
 $(NAME):	$(OBJS)
 				$(AR) $(NAME) $(OBJS)
 $(OBJS):	$(SRCS)
 				$(CC) $(CFLAGS) $(SRCS)
-$(BONUS):	$(BONUS_SRCS)
-				$(CC) $(CFLAGS) $(BONUS_SRCS)
-
-bonus:		$(OBJS) $(BONUS)
-				$(AR) $(NAME) $(BONUS)
-			$(info Finished compiling libft functions + bonus functions!)
 
 clean:
 			@rm -rf $(OBJS)
