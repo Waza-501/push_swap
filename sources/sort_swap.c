@@ -6,7 +6,7 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/09 11:38:43 by owen          #+#    #+#                 */
-/*   Updated: 2025/01/13 13:45:32 by owen          ########   odam.nl         */
+/*   Updated: 2025/01/15 13:48:50 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	swap(t_stack **stack)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	if (!stack || !((*stack)->next))
 		return ;

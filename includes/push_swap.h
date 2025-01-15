@@ -6,7 +6,7 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/08 11:28:46 by owen          #+#    #+#                 */
-/*   Updated: 2025/01/15 12:21:57 by owen          ########   odam.nl         */
+/*   Updated: 2025/01/15 15:34:18 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,28 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }	t_stack;
 
+/*push*/
+void		push_a(t_stack **a, t_stack **b);
+void		push_b(t_stack **b, t_stack **a);
 
+/*swap*/
+void		swap_a(t_stack **a);
+void		swap_b(t_stack **b);
+void		swap_both(t_stack **a, t_stack **b);
+
+/*rotate*/
+void		rotate_a(t_stack **a);
+void		rotate_b(t_stack **b);
+void		rotate_both(t_stack **a, t_stack **b);
+
+/*reverse rotate*/
+void		rrotate_a(t_stack **a);
+void		rrotate_b(t_stack **b);
+void		rrotate_both(t_stack **a, t_stack **b);
+
+int			find_top(t_stack *a);
+void		sort(t_stack **a);
+size_t		ps_lst_size(t_stack *list);
 t_stack		*find_last(t_stack *stack);
 void		swap_a(t_stack **a);
 int			ps_atoi_qt(const char *str, char **data);

@@ -6,7 +6,7 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/09 11:39:02 by owen          #+#    #+#                 */
-/*   Updated: 2025/01/15 12:39:48 by owen          ########   odam.nl         */
+/*   Updated: 2025/01/15 13:48:36 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	rotate_a(t_stack **a)
 void	rotate_b(t_stack **b)
 {
 	rotate(b);
-	ft_putstr_fd("rb\n", 1)
+	ft_putstr_fd("rb\n", 1);
 }
 
 void	rotate_both(t_stack **a, t_stack **b)
