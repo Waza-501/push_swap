@@ -6,7 +6,7 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/08 11:28:46 by owen          #+#    #+#                 */
-/*   Updated: 2025/01/08 17:36:14 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/01/15 12:21:57 by owen          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,16 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }	t_stack;
 
+
+t_stack		*find_last(t_stack *stack);
+void		swap_a(t_stack **a);
 int			ps_atoi_qt(const char *str, char **data);
 int			ps_atoi(const char *str);
 void		free_strarr(char **str);
 void		free_stack(t_stack **target);
 void		qt_input_check(char **strarr);
+int			compare_val(t_stack *a, int ref);
+int			checksorted(t_stack *a);
 void		input_check(int argc, char **argv);
 t_stack		*ps_lstlast(t_stack *lst);
 void		ps_lstadd_back(t_stack **lst, t_stack *new);

@@ -15,6 +15,7 @@ SOURCES			:=	atoi2.c\
 					input_handling.c\
 					lists.c\
 					push_swap.c\
+					sort.c\
 					struct_tools.c\
 
 OBJECTS_DIR		:=	objects/

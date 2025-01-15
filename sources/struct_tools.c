@@ -6,7 +6,7 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/06 13:50:39 by owen          #+#    #+#                 */
-/*   Updated: 2025/01/08 14:25:32 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/01/15 12:21:44 by owen          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
+
+t_stack	*find_last(t_stack *stack)
+{
+	while (stack && stack->next != NULL)
+		stack = stack->next;
+	return (stack);
+}
 
 /*This function is used to set up a 
 new node with the content of argv[idx]*/
