@@ -6,7 +6,7 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/06 12:30:58 by owen          #+#    #+#                 */
-/*   Updated: 2025/01/15 15:48:34 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/01/15 18:04:48 by owen          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	main(int argc, char **argv)
 	}*/
 	if (checksorted(a))
 	{
-		printf("Not yet sorted\n");
+		//printf("Not yet sorted\n");
 		//print_stack(a);
 		sort(&a);
 	}

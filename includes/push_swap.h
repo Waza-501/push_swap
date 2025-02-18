@@ -6,7 +6,7 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/08 11:28:46 by owen          #+#    #+#                 */
-/*   Updated: 2025/01/15 15:34:18 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/01/21 11:50:20 by owen          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ typedef struct s_stack
 {
 	int				value;
 	int				index;
-	int				pos;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }	t_stack;
@@ -45,6 +44,7 @@ void		rrotate_a(t_stack **a);
 void		rrotate_b(t_stack **b);
 void		rrotate_both(t_stack **a, t_stack **b);
 
+int			find_bottom(t_stack *a);
 int			find_top(t_stack *a);
 void		sort(t_stack **a);
 size_t		ps_lst_size(t_stack *list);

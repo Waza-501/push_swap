@@ -6,7 +6,7 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/06 13:30:32 by owen          #+#    #+#                 */
-/*   Updated: 2025/01/08 18:04:48 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/01/21 11:48:36 by owen          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	compare_val(t_stack *a, int ref)
 	copy = a;
 	while (copy != NULL)
 	{
-		/*printf("Ref is %i, Value is %i\n", ref, copy->value);*/
 		if (ref == copy->value)
 			return (ERROR);
 		copy = copy->next;
@@ -54,7 +53,6 @@ void	argv_quotes(char *str, t_stack **a)
 	char	**new;
 	int		idx;
 
-	/*printf("Entering argv_quotes\n\n");*/
 	new = ft_split(str, ' ');
 	if (!new)
 		error_exit(NULL);
@@ -66,7 +64,6 @@ void	argv_quotes(char *str, t_stack **a)
 		idx++;
 	}
 	free_strarr(new);
-	/*printf("Leaving argv_quotes\n\n");*/
 }
 
 t_stack	*process_input(int argc, char **argv)
@@ -87,8 +84,6 @@ t_stack	*process_input(int argc, char **argv)
 			idx++;
 		}
 	}
-	write(1, "only reach here if input is valid\n", 34);
 	check_dupe(a);
-	/*a = init_stack();*/
 	return (a);
 }
