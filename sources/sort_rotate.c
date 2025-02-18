@@ -6,7 +6,7 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/09 11:39:02 by owen          #+#    #+#                 */
-/*   Updated: 2025/01/15 13:48:36 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/18 17:00:12 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,10 @@ void	rotate_b(t_stack **b)
 
 void	rotate_both(t_stack **a, t_stack **b)
 {
+	printf("Checkpoint 1R\n");
 	rotate(a);
+	printf("Checkpoint 2R\n");
 	rotate(b);
+	printf("Checkpoint 3R\n");
 	ft_putstr_fd("rr/n", 1);
 }

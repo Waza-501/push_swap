@@ -6,7 +6,7 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/08 11:28:46 by owen          #+#    #+#                 */
-/*   Updated: 2025/01/21 11:50:20 by owen          ########   odam.nl         */
+/*   Updated: 2025/02/18 17:00:30 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 # define PUSH_SWAP_H
 
 # define ERROR 1
+# define FINISHED -1
 
 # include "../libraries/libft/libft.h"
+# include <stdio.h>
 
 typedef struct s_stack
 {
@@ -44,10 +46,21 @@ void		rrotate_a(t_stack **a);
 void		rrotate_b(t_stack **b);
 void		rrotate_both(t_stack **a, t_stack **b);
 
+int			b_execute_rrarrb(t_stack **src, t_stack **dst, int t_value);
+int			b_execute_rarrb(t_stack **src, t_stack **dst, int t_value);
+int			b_execute_rrarb(t_stack **src, t_stack **dst, int t_value);
+int			b_execute_rarb(t_stack **src, t_stack **dst, int t_value);
+int			calc_normal(t_stack *src, t_stack *dst, int t_value);
+int			calc_reverse_src(t_stack *src, t_stack *dst, int t_value);
+int			calc_reverse_dst(t_stack *src, t_stack *dst, int t_value);
+int			calc_reverse(t_stack *src, t_stack *dst, int t_value);
+int			find_rotate_type(t_stack *src, t_stack *dst);
 int			find_bottom(t_stack *a);
 int			find_top(t_stack *a);
+int			find_target_pos(t_stack *stack, int target);
+int			find_pos_in_stack(t_stack *stack, int target);
 void		sort(t_stack **a);
-size_t		ps_lst_size(t_stack *list);
+int			ps_lst_size(t_stack *list);
 t_stack		*find_last(t_stack *stack);
 void		swap_a(t_stack **a);
 int			ps_atoi_qt(const char *str, char **data);

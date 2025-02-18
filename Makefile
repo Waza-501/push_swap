@@ -15,6 +15,10 @@ SOURCES			:=	atoi2.c\
 					input_handling.c\
 					lists.c\
 					push_swap.c\
+					sort_algorithm_calc.c\
+					sort_algorithm_exe_a.c\
+					sort_algorithm_exe_b.c\
+					sort_algorithm_utils.c\
 					sort_algorithm.c\
 					sort_push.c\
 					sort_rotate.c\
