@@ -6,7 +6,7 @@
 /*   By: owhearn <owhearn@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/18 12:04:39 by owhearn       #+#    #+#                 */
-/*   Updated: 2025/02/19 15:35:27 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/19 17:40:44 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ int	calc_reverse(t_stack *src, t_stack *dst, int t_value)
 	{
 		if (find_pos_in_stack(dst, t_value))
 			i = ps_lst_size(dst) - find_pos_in_stack(dst, t_value);
-		if (i < (ps_lst_size(src) - find_target(src, t_value)))
+		if (find_target(src, t_value) && (i < (ps_lst_size(src) - find_target(src, t_value))))
 			i = (ps_lst_size(src) - find_target(src, t_value));
 	}
 	if (src->type == STACK_B)
 	{
 		if (find_pos_in_stack(dst, t_value))
 			i = ps_lst_size(dst) - find_pos_in_stack(dst, t_value);
-		if (i < (ps_lst_size(src) - find_target(src, t_value)))
+		if (find_target(src, t_value) && (i < (ps_lst_size(src) - find_target(src, t_value))))
 			i = (ps_lst_size(src) - find_target(src, t_value));
 	}
 	//printf("reverse = %i\n", i + 1);

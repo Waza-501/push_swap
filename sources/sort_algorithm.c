@@ -6,7 +6,7 @@
 /*   By: owhearn <owhearn@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/15 13:55:07 by owhearn       #+#    #+#                 */
-/*   Updated: 2025/02/19 16:22:37 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/19 17:47:59 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,8 @@ void	sort(t_stack **a)
 	{
 		b = form_stack_b(a);
 		//pprint_stack(*a, 'a');
-		//pprint_stack(b, 'b');
+		pprint_stack(b, 'b');
+		exit (1);
 		merge_into_a(a, &b);
 		//pprint_stack(*a, 'a');
 		if (find_target(*a, find_bottom(*a)) < ps_lst_size(*a) / 2)
