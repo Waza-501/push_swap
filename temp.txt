@@ -1,0 +1,38 @@
+rm -rf objects/atoi2.o objects/error_handling.o objects/free.o objects/input_check.o objects/input_handling.o objects/lists.o objects/push_swap.o objects/sort_algorithm_calc.o objects/sort_algorithm_exe_a.o objects/sort_algorithm_exe_b.o objects/sort_algorithm_utils.o objects/sort_algorithm.o objects/sort_push.o objects/sort_rotate.o objects/sort_rrotate.o objects/sort_swap.o objects/sort.o objects/struct_tools.o
+
+Removed libft object files.
+rm -rf push_swap.a
+
+Removed libft object files.
+
+Removed all made libft functions.
+if [ -d "objects/" ]; then rm -drf objects/; fi
+
+Cleaned up all created files.
+mkdir -p objects/
+cc -Wall -Werror -Wextra -I includes/ -c -o objects/atoi2.o sources/atoi2.c
+mkdir -p objects/
+cc -Wall -Werror -Wextra -I includes/ -c -o objects/error_handling.o sources/error_handling.c
+mkdir -p objects/
+cc -Wall -Werror -Wextra -I includes/ -c -o objects/free.o sources/free.c
+mkdir -p objects/
+cc -Wall -Werror -Wextra -I includes/ -c -o objects/input_check.o sources/input_check.c
+mkdir -p objects/
+cc -Wall -Werror -Wextra -I includes/ -c -o objects/input_handling.o sources/input_handling.c
+mkdir -p objects/
+cc -Wall -Werror -Wextra -I includes/ -c -o objects/lists.o sources/lists.c
+mkdir -p objects/
+cc -Wall -Werror -Wextra -I includes/ -c -o objects/push_swap.o sources/push_swap.c
+mkdir -p objects/
+cc -Wall -Werror -Wextra -I includes/ -c -o objects/sort_algorithm_calc.o sources/sort_algorithm_calc.c
+mkdir -p objects/
+cc -Wall -Werror -Wextra -I includes/ -c -o objects/sort_algorithm_exe_a.o sources/sort_algorithm_exe_a.c
+mkdir -p objects/
+cc -Wall -Werror -Wextra -I includes/ -c -o objects/sort_algorithm_exe_b.o sources/sort_algorithm_exe_b.c
+mkdir -p objects/
+cc -Wall -Werror -Wextra -I includes/ -c -o objects/sort_algorithm_utils.o sources/sort_algorithm_utils.c
+mkdir -p objects/
+cc -Wall -Werror -Wextra -I includes/ -c -o objects/sort_algorithm.o sources/sort_algorithm.c
+0
+
+KO

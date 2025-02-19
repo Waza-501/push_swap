@@ -6,7 +6,7 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/08 11:28:46 by owen          #+#    #+#                 */
-/*   Updated: 2025/02/18 17:00:30 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/19 14:54:19 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # define ERROR 1
 # define FINISHED -1
+# define STACK_B 1
+# define STACK_A -1
 
 # include "../libraries/libft/libft.h"
 # include <stdio.h>
@@ -22,7 +24,7 @@
 typedef struct s_stack
 {
 	int				value;
-	int				index;
+	int				type;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }	t_stack;
@@ -46,6 +48,10 @@ void		rrotate_a(t_stack **a);
 void		rrotate_b(t_stack **b);
 void		rrotate_both(t_stack **a, t_stack **b);
 
+int			a_execute_rrarrb(t_stack **src, t_stack **dst, int t_value);
+int			a_execute_rarrb(t_stack **src, t_stack **dst, int t_value);
+int			a_execute_rrarb(t_stack **src, t_stack **dst, int t_value);
+int			a_execute_rarb(t_stack **src, t_stack **dst, int t_value);
 int			b_execute_rrarrb(t_stack **src, t_stack **dst, int t_value);
 int			b_execute_rarrb(t_stack **src, t_stack **dst, int t_value);
 int			b_execute_rrarb(t_stack **src, t_stack **dst, int t_value);
@@ -55,9 +61,12 @@ int			calc_reverse_src(t_stack *src, t_stack *dst, int t_value);
 int			calc_reverse_dst(t_stack *src, t_stack *dst, int t_value);
 int			calc_reverse(t_stack *src, t_stack *dst, int t_value);
 int			find_rotate_type(t_stack *src, t_stack *dst);
+int			find_target(t_stack *stack, int target);
 int			find_bottom(t_stack *a);
 int			find_top(t_stack *a);
 int			find_target_pos(t_stack *stack, int target);
+int			stack_low_high(t_stack *stack, int target);
+int			stack_high_low(t_stack *stack, int target);
 int			find_pos_in_stack(t_stack *stack, int target);
 void		sort(t_stack **a);
 int			ps_lst_size(t_stack *list);
@@ -78,5 +87,7 @@ t_stack		*init_stack(void);
 t_stack		*process_input(int argc, char **argv);
 void		error_exit_qt(t_stack **one, char **data);
 void		error_exit(t_stack **one);
+
+void		pprint_stack(t_stack *a, char s);
 
 #endif

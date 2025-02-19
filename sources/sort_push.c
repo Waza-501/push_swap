@@ -6,7 +6,7 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/09 11:38:33 by owen          #+#    #+#                 */
-/*   Updated: 2025/02/18 16:13:33 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/19 14:48:08 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ void	push(t_stack **src, t_stack **dst)
 	old_head = *dst;
 	(*src)->next = *dst;
 	*dst = *src;
+	//printf("type was %i\n", (*dst)->type);
+	(*dst)->type *= -1;
+	//printf("type is %i\n", (*dst)->type);
 	*src = new_head;
 	if (new_head != NULL)
 		new_head->prev = NULL;

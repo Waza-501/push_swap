@@ -6,7 +6,7 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/09 10:12:54 by owen          #+#    #+#                 */
-/*   Updated: 2025/01/09 10:28:49 by owen          ########   odam.nl         */
+/*   Updated: 2025/02/19 12:25:01 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int	compare_val2(t_stack *a, int ref)
 	return (0);
 }
 
+/*Possible rewrite idea, make it compare to
+the next value instead of the entire list*/
 int	checksorted(t_stack *a)
 {
 	t_stack	*copy;

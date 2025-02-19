@@ -6,7 +6,7 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/06 13:50:39 by owen          #+#    #+#                 */
-/*   Updated: 2025/01/21 11:48:54 by owen          ########   odam.nl         */
+/*   Updated: 2025/02/19 14:07:16 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_stack	*fill_stack(int content)
 	if (!new)
 		return (NULL);
 	new->value = content;
-	new->index = -1;
+	new->type = STACK_A;
 	new->next = NULL;
 	new->prev = NULL;
 	return (new);

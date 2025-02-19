@@ -6,7 +6,7 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/06 12:30:58 by owen          #+#    #+#                 */
-/*   Updated: 2025/02/18 16:18:59 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/19 16:10:15 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(int argc, char **argv)
 		//printf("%i\n", ps_lst_size(a));
 		sort(&a);
 	}
-	print_stack(a, 'a');
+	//print_stack(a, 'a');
 	free_stack(&a);
 	return (0);
 }

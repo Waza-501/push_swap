@@ -6,7 +6,7 @@
 /*   By: owhearn <owhearn@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/18 13:39:05 by owhearn       #+#    #+#                 */
-/*   Updated: 2025/02/18 13:52:33 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/19 15:35:11 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,17 @@
 
 int	a_execute_rrarrb(t_stack **src, t_stack **dst, int t_value)
 {
-	while ((*src)->value != t_value || find_target_pos((*dst), t_value) != 0)
+	//printf("Checkpoint rrarrb: %i | %i | %i\n", (*src)->value, find_pos_in_stack((*dst), t_value), t_value);
+	while ((*src)->value != t_value || find_pos_in_stack((*dst), t_value) != 0)
 		rrotate_both(src, dst);
 	if ((*src)->value != t_value)
 	{
 		while ((*src)->value != t_value)
 			rrotate_b(src);
 	}
-	else if (find_target_pos((*dst), t_value) != 0)
+	else if (find_pos_in_stack((*dst), t_value) != 0)
 	{
-		while (find_target_pos((*dst), t_value) != 0)
+		while (find_pos_in_stack((*dst), t_value) != 0)
 			rrotate_a(dst);
 	}
 	push_a(dst, src);
@@ -32,14 +33,15 @@ int	a_execute_rrarrb(t_stack **src, t_stack **dst, int t_value)
 
 int	a_execute_rarrb(t_stack **src, t_stack **dst, int t_value)
 {
+	//printf("Checkpoint rarrb: %i | %i | %i\n", (*src)->value, find_pos_in_stack((*dst), t_value), t_value);
 	if ((*src)->value != t_value)
 	{
 		while ((*src)->value != t_value)
 			rrotate_b(src);
 	}
-	else if (find_target_pos((*dst), t_value) != 0)
+	else if (find_pos_in_stack((*dst), t_value) != 0)
 	{
-		while (find_target_pos((*dst), t_value) != 0)
+		while (find_pos_in_stack((*dst), t_value) != 0)
 			rotate_a(dst);
 	}
 	push_a(dst, src);
@@ -48,14 +50,15 @@ int	a_execute_rarrb(t_stack **src, t_stack **dst, int t_value)
 
 int	a_execute_rrarb(t_stack **src, t_stack **dst, int t_value)
 {
+	//printf("Checkpoint rrarb: %i | %i | %i\n", (*src)->value, find_pos_in_stack((*dst), t_value), t_value);
 	if ((*src)->value != t_value)
 	{
 		while ((*src)->value != t_value)
 			rotate_b(src);
 	}
-	else if (find_target_pos((*dst), t_value) != 0)
+	else if (find_pos_in_stack((*dst), t_value) != 0)
 	{
-		while (find_target_pos((*dst), t_value) != 0)
+		while (find_pos_in_stack((*dst), t_value) != 0)
 			rrotate_a(dst);
 	}
 	push_a(dst, src);
@@ -64,17 +67,18 @@ int	a_execute_rrarb(t_stack **src, t_stack **dst, int t_value)
 
 int	a_execute_rarb(t_stack **src, t_stack **dst, int t_value)
 {
-	while ((*src)->value != t_value || find_target_pos((*dst), t_value) != 0)
+	//printf("Checkpoint rarb: %i | %i | %i\n", (*src)->value, find_pos_in_stack((*dst), t_value), t_value);
+	while ((*src)->value != t_value && find_pos_in_stack((*dst), t_value) != 0)
 		rotate_both(src, dst);
 	if ((*src)->value != t_value)
 	{
 		while ((*src)->value != t_value)
-			rotate_a(src);
+			rotate_b(src);
 	}
-	else if (find_target_pos((*dst), t_value) != 0)
+	else if (find_pos_in_stack((*dst), t_value) != 0)
 	{
-		while (find_target_pos((*dst), t_value) != 0)
-			rotate_b(dst);
+		while (find_pos_in_stack((*dst), t_value) != 0)
+			rotate_a(dst);
 	}
 	push_a(dst, src);
 	return (FINISHED);

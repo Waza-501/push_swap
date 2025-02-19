@@ -9,5 +9,3 @@ echo ""
 echo ""
 ./push_swap.a 3 2 1 4 6 5
 echo ""
-./push_swap.a 3 4 2 1 5 6 8 0 11 9
-echo ""
