@@ -6,7 +6,7 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/17 17:25:05 by owen          #+#    #+#                 */
-/*   Updated: 2025/02/19 16:25:35 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/19 16:40:16 by owen          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,10 @@ int	stack_low_high(t_stack *stack, int target)
 	else
 	{
 		temp = stack->next;
-		while (stack->value > target || stack->next->value < target)
+		while (stack->value > target || temp->value < target)
 		{
 			stack = stack->next;
+			temp = stack->next;
 			ret++;
 		}
 	}

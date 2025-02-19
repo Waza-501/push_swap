@@ -6,7 +6,7 @@
 /*   By: owhearn <owhearn@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/18 13:39:05 by owhearn       #+#    #+#                 */
-/*   Updated: 2025/02/19 15:35:11 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/19 16:46:26 by owen          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	a_execute_rrarrb(t_stack **src, t_stack **dst, int t_value)
 {
 	//printf("Checkpoint rrarrb: %i | %i | %i\n", (*src)->value, find_pos_in_stack((*dst), t_value), t_value);
-	while ((*src)->value != t_value || find_pos_in_stack((*dst), t_value) != 0)
+	while ((*src)->value != t_value && find_pos_in_stack((*dst), t_value) != 0)
 		rrotate_both(src, dst);
 	if ((*src)->value != t_value)
 	{
