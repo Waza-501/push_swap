@@ -6,24 +6,12 @@
 /*   By: owhearn <owhearn@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/15 13:55:07 by owhearn       #+#    #+#                 */
-/*   Updated: 2025/02/20 10:40:33 by owen          ########   odam.nl         */
+/*   Updated: 2025/02/21 17:36:45 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
-
-void	pprint_stack(t_stack *a, char s)
-{
-	t_stack	*temp;
-
-	temp = a;
-	while (temp != NULL)
-	{
-		printf("[%c] value:%i type:%i\n", s, temp->value, temp->type);
-		temp = temp->next;
-	}
-}
 
 void	sort_three(t_stack **a)
 {
@@ -46,10 +34,7 @@ void	fill_stack_b(t_stack **a, t_stack **b)
 	while (checksorted(*a) && ps_lst_size(*a) > 3)
 	{
 		temp = *a;
-		//printf("temp2\n");
 		i = find_rotate_type(*a, *b);
-		//printf("Checkpoint 3: %i\n", i);
-		//printf("checkpoint: moves to do is %i\n", i);
 		while (i >= 0)
 		{
 			if (i == calc_normal(*a, *b, temp->value))
@@ -86,13 +71,10 @@ void	merge_into_a(t_stack **a, t_stack **b)
 	int		i;
 
 	sort_three(a);
-	//printf("read from here\n\n");
 	while (*b)
 	{
 		temp = *b;
-		//pprint_stack(*a, 'a');
 		i = find_rotate_type(*b, *a);
-		//printf("checkpoint mia: value is %i\n\n\n", i);
 		while (i >= 0)
 		{
 			if (i == calc_normal(*b, *a, temp->value))
@@ -120,11 +102,7 @@ void	sort(t_stack **a)
 	else
 	{
 		b = form_stack_b(a);
-		//pprint_stack(*a, 'a');
-		//pprint_stack(b, 'b');
-		//exit (1);
 		merge_into_a(a, &b);
-		//pprint_stack(*a, 'a');
 		if (find_target(*a, find_bottom(*a)) < ps_lst_size(*a) / 2)
 		{
 			while ((*a)->value != find_bottom(*a))

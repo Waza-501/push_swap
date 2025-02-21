@@ -6,7 +6,7 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/06 12:30:58 by owen          #+#    #+#                 */
-/*   Updated: 2025/02/19 16:47:02 by owen          ########   odam.nl         */
+/*   Updated: 2025/02/21 17:45:26 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-
-void	print_stack(t_stack *a, char s)
-{
-	t_stack	*temp;
-
-	temp = a;
-	while (temp != NULL)
-	{
-		printf("[%c] :%i\n", s, temp->value);
-		temp = temp->next;
-	}
-}
 
 int	main(int argc, char **argv)
 {
@@ -38,13 +26,7 @@ int	main(int argc, char **argv)
 	if (!a)
 		return (write(2, "error found\n", 12));
 	if (checksorted(a))
-	{
-		//printf("Not yet sorted\n");
-		//print_stack(a);
-		//printf("%i\n", ps_lst_size(a));
 		sort(&a);
-	}
-	//print_stack(a, 'a');
 	free_stack(&a);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/09 10:12:54 by owen          #+#    #+#                 */
-/*   Updated: 2025/02/19 12:25:01 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/21 17:31:58 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	compare_val2(t_stack *a, int ref)
 	copy = a;
 	while (copy != NULL)
 	{
-		/*printf("Ref is %i, Value is %i\n", ref, copy->value);*/
 		if (ref > copy->value)
 			return (ERROR);
 		copy = copy->next;

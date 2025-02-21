@@ -6,7 +6,7 @@
 /*   By: owhearn <owhearn@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/18 12:04:39 by owhearn       #+#    #+#                 */
-/*   Updated: 2025/02/20 10:38:00 by owen          ########   odam.nl         */
+/*   Updated: 2025/02/21 17:38:01 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,18 @@ int	calc_reverse(t_stack *src, t_stack *dst, int t_value)
 	{
 		if (find_pos_in_stack(dst, t_value))
 			i = ps_lst_size(dst) - find_pos_in_stack(dst, t_value);
-		if (find_target(src, t_value) && (i < (ps_lst_size(src) - find_target(src, t_value))))
+		if (find_target(src, t_value) && (i < (ps_lst_size(src)
+					- find_target(src, t_value))))
 			i = (ps_lst_size(src) - find_target(src, t_value));
 	}
 	if (src->type == STACK_B)
 	{
 		if (find_pos_in_stack(dst, t_value))
 			i = ps_lst_size(dst) - find_pos_in_stack(dst, t_value);
-		if (find_target(src, t_value) && (i < (ps_lst_size(src) - find_target(src, t_value))))
+		if (find_target(src, t_value) && (i < (ps_lst_size(src)
+					- find_target(src, t_value))))
 			i = (ps_lst_size(src) - find_target(src, t_value));
 	}
-	//printf("reverse = %i\n", i + 1);
-	/*write (1, "rrarrb is ", 10);
-	ft_putnbr_fd(i, 1);
-	write (1, "\n", 1);*/
 	return (i);
 }
 
@@ -58,10 +56,6 @@ int	calc_reverse_dst(t_stack *src, t_stack *dst, int t_value)
 			i = ps_lst_size(dst) - find_pos_in_stack(dst, t_value);
 		i += find_target(src, t_value);
 	}
-	/*printf("reverse dest = %i\n", i + 1);
-	write (1, "rarrb is ", 9);
-	ft_putnbr_fd(i, 1);
-	write (1, "\n", 1);*/
 	return (i);
 }
 
@@ -83,10 +77,6 @@ int	calc_reverse_src(t_stack *src, t_stack *dst, int t_value)
 		if (find_target(src, t_value))
 			i += (ps_lst_size(src) - find_target(src, t_value));
 	}
-	/*printf("reverse source = %i\n", i + 1);
-	write (1, "rrarb is ", 9);
-	ft_putnbr_fd(i, 1);
-	write (1, "\n", 1);*/
 	return (i);
 }
 
@@ -108,10 +98,6 @@ int	calc_normal(t_stack *src, t_stack *dst, int t_value)
 		if (i < find_target(src, t_value))
 			i = find_target(src, t_value);
 	}
-	/*printf("normal = %i\n", i + 1);
-	write (1, "rarb is ", 8);
-	ft_putnbr_fd(i, 1);
-	write (1, "\n", 1);*/
 	return (i);
 }
 
@@ -120,13 +106,10 @@ int	find_rotate_type(t_stack *src, t_stack *dst)
 	t_stack	*temp;
 	int		i;
 
-	//printf("Checkpoint 1 calc\n");
 	temp = src;
 	i = __INT_MAX__;
-	//printf("src type is %i, dst type is %i\n", src->type, dst->type);
 	while (temp)
 	{
-		//printf("Checkpoint 2 calc\n");
 		if (calc_normal(src, dst, temp->value) < i)
 			i = calc_normal(src, dst, temp->value);
 		if (calc_reverse_src(src, dst, temp->value) < i)
@@ -137,6 +120,5 @@ int	find_rotate_type(t_stack *src, t_stack *dst)
 			i = calc_reverse(src, dst, temp->value);
 		temp = temp->next;
 	}
-	//printf("Checkpoint calc value =  %i\n", i);
 	return (i);
 }
