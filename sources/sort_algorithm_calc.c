@@ -6,7 +6,7 @@
 /*   By: owhearn <owhearn@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/18 12:04:39 by owhearn       #+#    #+#                 */
-/*   Updated: 2025/02/19 17:40:44 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/20 10:38:00 by owen          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ int	calc_reverse(t_stack *src, t_stack *dst, int t_value)
 			i = (ps_lst_size(src) - find_target(src, t_value));
 	}
 	//printf("reverse = %i\n", i + 1);
+	/*write (1, "rrarrb is ", 10);
+	ft_putnbr_fd(i, 1);
+	write (1, "\n", 1);*/
 	return (i);
 }
 
@@ -55,7 +58,10 @@ int	calc_reverse_dst(t_stack *src, t_stack *dst, int t_value)
 			i = ps_lst_size(dst) - find_pos_in_stack(dst, t_value);
 		i += find_target(src, t_value);
 	}
-	//printf("reverse dest = %i\n", i + 1);
+	/*printf("reverse dest = %i\n", i + 1);
+	write (1, "rarrb is ", 9);
+	ft_putnbr_fd(i, 1);
+	write (1, "\n", 1);*/
 	return (i);
 }
 
@@ -68,14 +74,19 @@ int	calc_reverse_src(t_stack *src, t_stack *dst, int t_value)
 	if (src->type == STACK_A)
 	{
 		i = find_pos_in_stack(dst, t_value);
-		i += (ps_lst_size(src) - find_target(src, t_value));
+		if (find_target(src, t_value))
+			i += (ps_lst_size(src) - find_target(src, t_value));
 	}
 	else if (src->type == STACK_B)
 	{
 		i = find_pos_in_stack(dst, t_value);
-		i += (ps_lst_size(src) - find_target(src, t_value));
+		if (find_target(src, t_value))
+			i += (ps_lst_size(src) - find_target(src, t_value));
 	}
-	//printf("reverse source = %i\n", i + 1);
+	/*printf("reverse source = %i\n", i + 1);
+	write (1, "rrarb is ", 9);
+	ft_putnbr_fd(i, 1);
+	write (1, "\n", 1);*/
 	return (i);
 }
 
@@ -97,7 +108,10 @@ int	calc_normal(t_stack *src, t_stack *dst, int t_value)
 		if (i < find_target(src, t_value))
 			i = find_target(src, t_value);
 	}
-	//printf("normal = %i\n", i + 1);
+	/*printf("normal = %i\n", i + 1);
+	write (1, "rarb is ", 8);
+	ft_putnbr_fd(i, 1);
+	write (1, "\n", 1);*/
 	return (i);
 }
 

@@ -6,7 +6,7 @@
 /*   By: owhearn <owhearn@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/15 13:55:07 by owhearn       #+#    #+#                 */
-/*   Updated: 2025/02/19 17:47:59 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/20 10:40:33 by owen          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	fill_stack_b(t_stack **a, t_stack **b)
 		//printf("temp2\n");
 		i = find_rotate_type(*a, *b);
 		//printf("Checkpoint 3: %i\n", i);
+		//printf("checkpoint: moves to do is %i\n", i);
 		while (i >= 0)
 		{
 			if (i == calc_normal(*a, *b, temp->value))
@@ -97,9 +98,9 @@ void	merge_into_a(t_stack **a, t_stack **b)
 			if (i == calc_normal(*b, *a, temp->value))
 				i = a_execute_rarb(b, a, temp->value);
 			else if (i == calc_reverse_src(*b, *a, temp->value))
-				i = a_execute_rrarb(b, a, temp->value);
-			else if (i == calc_reverse_dst(*b, *a, temp->value))
 				i = a_execute_rarrb(b, a, temp->value);
+			else if (i == calc_reverse_dst(*b, *a, temp->value))
+				i = a_execute_rrarb(b, a, temp->value);
 			else if (i == calc_reverse(*b, *a, temp->value))
 				i = a_execute_rrarrb(b, a, temp->value);
 			else
@@ -120,8 +121,8 @@ void	sort(t_stack **a)
 	{
 		b = form_stack_b(a);
 		//pprint_stack(*a, 'a');
-		pprint_stack(b, 'b');
-		exit (1);
+		//pprint_stack(b, 'b');
+		//exit (1);
 		merge_into_a(a, &b);
 		//pprint_stack(*a, 'a');
 		if (find_target(*a, find_bottom(*a)) < ps_lst_size(*a) / 2)
