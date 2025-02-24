@@ -8,11 +8,7 @@ LIBFT_NAME 		:= libft.a
 LIBFT 			:= $(addprefix $(LIBFT_FOLDER), $(LIBFT_NAME))
 
 SOURCES_DIR		:=	sources/
-SOURCES			:=	atoi2.c\
-					error_handling.c\
-					free.c\
-					input_check.c\
-					input_handling.c\
+SOURCES			:=	input_handling.c\
 					input_quotes.c\
 					lists.c\
 					push_swap.c\
@@ -27,6 +23,7 @@ SOURCES			:=	atoi2.c\
 					sort_swap.c\
 					sort.c\
 					struct_tools.c\
+					utilities.c\
 
 OBJECTS_DIR		:=	objects/
 OBJECTS			:= $(addprefix $(OBJECTS_DIR), $(SOURCES:.c=.o))

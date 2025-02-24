@@ -1,45 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   free.c                                             :+:    :+:            */
+/*   scrapped.c                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: owhearn <owhearn@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/01/08 14:29:47 by owhearn       #+#    #+#                 */
-/*   Updated: 2025/01/08 16:39:28 by owhearn       ########   odam.nl         */
+/*   Created: 2025/02/24 13:10:39 by owhearn       #+#    #+#                 */
+/*   Updated: 2025/02/24 13:11:02 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_strarr(char **str)
+/*
+int	compare_val2(t_stack *a, int ref)
 {
-	int	idx;
+	t_stack	*copy;
 
-	idx = 0;
-	if (str != NULL || str[idx] != NULL)
+	copy = a;
+	while (copy != NULL)
 	{
-		while (str[idx])
-		{
-			free(str[idx]);
-			idx++;
-		}
-		free(str);
-		str = NULL;
+		if (ref > copy->value)
+			return (ERROR);
+		copy = copy->next;
 	}
+	return (0);
 }
 
-void	free_stack(t_stack **target)
+Possible rewrite idea, make it compare to
+the next value instead of the entire list
+int	checksorted2(t_stack *a)
 {
-	t_stack	*temp;
+	t_stack	*copy;
 
-	if (!target || !(*target))
-		return ;
-	while (*target)
+	copy = a;
+	while (copy->next)
 	{
-		temp = (*target)->next;
-		free (*target);
-		*target = temp;
+		if (compare_val2(copy->next, copy->value))
+			return (ERROR);
+		copy = copy->next;
 	}
-	target = NULL;
-}
+	return (0);
+}*/
