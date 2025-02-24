@@ -46,15 +46,15 @@ $(LIBFT):
 			@make $(MUTE) -C $(LIBFT_FOLDER)
 
 $(OBJECTS_DIR)%.o:	$(SOURCES_DIR)%.c
-					mkdir -p $(dir $@)
+					@mkdir -p $(dir $@)
 					$(CC) $(CFLAGS) $(HEADERS) -c -o $@ $<
 
 clean:
-			rm -rf $(OBJECTS)
+			@rm -rf $(OBJECTS)
 			@make $(MUTE) -C $(LIBFT_FOLDER) clean
 
 fclean:		clean
-			rm -rf $(NAME)
+			@rm -rf $(NAME)
 			@make $(MUTE) -C $(LIBFT_FOLDER) fclean
 			if [ -d "$(OBJECTS_DIR)" ]; then rm -drf $(OBJECTS_DIR); fi
 			@echo ""
