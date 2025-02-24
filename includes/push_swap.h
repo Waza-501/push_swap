@@ -6,7 +6,7 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/08 11:28:46 by owen          #+#    #+#                 */
-/*   Updated: 2025/02/19 14:54:19 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/24 12:33:13 by owen          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int			find_target_pos(t_stack *stack, int target);
 int			stack_low_high(t_stack *stack, int target);
 int			stack_high_low(t_stack *stack, int target);
 int			find_pos_in_stack(t_stack *stack, int target);
+void	argv_quotes(char *str, t_stack **a);
 void		sort(t_stack **a);
 int			ps_lst_size(t_stack *list);
 t_stack		*find_last(t_stack *stack);

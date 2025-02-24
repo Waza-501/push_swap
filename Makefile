@@ -13,6 +13,7 @@ SOURCES			:=	atoi2.c\
 					free.c\
 					input_check.c\
 					input_handling.c\
+					input_quotes.c\
 					lists.c\
 					push_swap.c\
 					sort_algorithm_calc.c\

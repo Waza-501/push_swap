@@ -6,7 +6,7 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/09 10:12:54 by owen          #+#    #+#                 */
-/*   Updated: 2025/02/24 11:59:24 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/24 12:21:00 by owen          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,23 @@ int	compare_val2(t_stack *a, int ref)
 	return (0);
 }
 
-int	checksorted2(t_stack *a)
+int	checksorted(t_stack *a)
 {
 	t_stack	*copy;
 
-	copy = a->next;
+	copy = a;
 	while (copy->next)
 	{
-		copy = a->next;
-		if (a->value > copy->value)
+		if (copy->value > copy->next->value)
 			return (ERROR);
-		a = a->next;
+		copy = copy->next;
 	}
 	return (0);
 }
 
 /*Possible rewrite idea, make it compare to
 the next value instead of the entire list*/
-int	checksorted(t_stack *a)
+int	checksorted2(t_stack *a)
 {
 	t_stack	*copy;
 
