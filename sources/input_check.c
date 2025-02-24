@@ -6,7 +6,7 @@
 /*   By: owhearn <owhearn@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/08 14:59:12 by owhearn       #+#    #+#                 */
-/*   Updated: 2025/02/19 13:25:38 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/24 11:28:00 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void	qt_input_check(char **str)
-{
-	int		idx;
 
-	idx = 1;
-	while (str[idx])
-	{
-		ps_atoi_qt(str[idx], str);
-		idx++;
-	}
-}
 
 void	input_check(int argc, char **argv)
 {

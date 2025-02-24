@@ -6,7 +6,7 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/09 10:12:54 by owen          #+#    #+#                 */
-/*   Updated: 2025/02/21 17:31:58 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/24 11:59:24 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,21 @@ int	compare_val2(t_stack *a, int ref)
 		if (ref > copy->value)
 			return (ERROR);
 		copy = copy->next;
+	}
+	return (0);
+}
+
+int	checksorted2(t_stack *a)
+{
+	t_stack	*copy;
+
+	copy = a->next;
+	while (copy->next)
+	{
+		copy = a->next;
+		if (a->value > copy->value)
+			return (ERROR);
+		a = a->next;
 	}
 	return (0);
 }

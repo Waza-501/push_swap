@@ -6,7 +6,7 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/06 13:30:32 by owen          #+#    #+#                 */
-/*   Updated: 2025/01/21 11:48:36 by owen          ########   odam.nl         */
+/*   Updated: 2025/02/24 11:37:24 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,24 +46,6 @@ void	check_dupe(t_stack *a)
 			error_exit(&a);
 		copy = copy->next;
 	}
-}
-
-void	argv_quotes(char *str, t_stack **a)
-{
-	char	**new;
-	int		idx;
-
-	new = ft_split(str, ' ');
-	if (!new)
-		error_exit(NULL);
-	idx = 0;
-	qt_input_check(new);
-	while (new[idx])
-	{
-		ps_lstadd_back(a, fill_stack(ps_atoi(new[idx])));
-		idx++;
-	}
-	free_strarr(new);
 }
 
 t_stack	*process_input(int argc, char **argv)
