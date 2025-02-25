@@ -60,12 +60,10 @@ $(OBJS):	$(SRCS)
 clean:
 			@rm -rf $(OBJS)
 			@rm -rf $(BONUS)
-			@echo ""
 			@echo Removed libft object files.
 
 fclean:		clean
 			@rm -rf $(NAME)
-			@echo ""
 			@echo Removed all made libft functions.
 
 re:	fclean all

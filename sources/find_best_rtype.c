@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   sort_algorithm_calc.c                              :+:    :+:            */
+/*   find_best_rtype.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: owhearn <owhearn@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/18 12:04:39 by owhearn       #+#    #+#                 */
-/*   Updated: 2025/02/21 17:38:01 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/25 16:33:38 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,13 +101,13 @@ int	calc_normal(t_stack *src, t_stack *dst, int t_value)
 	return (i);
 }
 
-int	find_rotate_type(t_stack *src, t_stack *dst)
+int	find_best_rtype(t_stack *src, t_stack *dst)
 {
 	t_stack	*temp;
 	int		i;
 
 	temp = src;
-	i = __INT_MAX__;
+	i = INT_MAX;
 	while (temp)
 	{
 		if (calc_normal(src, dst, temp->value) < i)

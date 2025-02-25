@@ -6,55 +6,13 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/17 17:25:05 by owen          #+#    #+#                 */
-/*   Updated: 2025/02/21 17:36:20 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/25 16:36:08 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	find_target(t_stack *stack, int target)
-{
-	int		ret;
-
-	ret = 0;
-	while (stack && stack->value != target)
-	{
-		ret++;
-		stack = stack->next;
-	}
-	return (ret);
-}
-
-int	find_bottom(t_stack *stack)
-{
-	int		ret;
-
-	ret = stack->value;
-	stack = stack->next;
-	while (stack != NULL)
-	{
-		if (stack->value < ret)
-			ret = stack->value;
-		stack = stack->next;
-	}
-	return (ret);
-}
-
-int	find_top(t_stack *stack)
-{
-	int		ret;
-
-	ret = stack->value;
-	stack = stack->next;
-	while (stack != NULL)
-	{
-		if (stack->value > ret)
-			ret = stack->value;
-		stack = stack->next;
-	}
-	return (ret);
-}
-
+/**/
 int	stack_low_high(t_stack *stack, int target)
 {
 	t_stack	*temp;

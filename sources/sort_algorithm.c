@@ -6,7 +6,7 @@
 /*   By: owhearn <owhearn@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/15 13:55:07 by owhearn       #+#    #+#                 */
-/*   Updated: 2025/02/21 17:36:45 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/25 14:21:23 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	sort_three(t_stack **a)
 		swap_a(a);
 }
 
+/**/
 void	fill_stack_b(t_stack **a, t_stack **b)
 {
 	t_stack	*temp;
@@ -34,7 +35,7 @@ void	fill_stack_b(t_stack **a, t_stack **b)
 	while (checksorted(*a) && ps_lst_size(*a) > 3)
 	{
 		temp = *a;
-		i = find_rotate_type(*a, *b);
+		i = find_best_rtype(*a, *b);
 		while (i >= 0)
 		{
 			if (i == calc_normal(*a, *b, temp->value))
@@ -51,6 +52,8 @@ void	fill_stack_b(t_stack **a, t_stack **b)
 	}
 }
 
+/*This function pushes the first two (if posible) numbers to stack B.
+If there are more than three numbers remaining, it will run fill_stack_b*/
 t_stack	*form_stack_b(t_stack **a)
 {
 	t_stack	*b;
@@ -65,6 +68,12 @@ t_stack	*form_stack_b(t_stack **a)
 	return (b);
 }
 
+/*This function will slowly push everything in stack B back
+into stack A, after stack A is sorted. Since stack B is already
+sorted High to Low, most of the time it'll simply be a push_a call.
+Since the push is different, we are using a slightly altered
+version of b_execute, replacing Push B with Push A.
+It will continue until stack B is empty.*/
 void	merge_into_a(t_stack **a, t_stack **b)
 {
 	t_stack	*temp;
@@ -74,7 +83,7 @@ void	merge_into_a(t_stack **a, t_stack **b)
 	while (*b)
 	{
 		temp = *b;
-		i = find_rotate_type(*b, *a);
+		i = find_best_rtype(*b, *a);
 		while (i >= 0)
 		{
 			if (i == calc_normal(*b, *a, temp->value))
@@ -91,6 +100,13 @@ void	merge_into_a(t_stack **a, t_stack **b)
 	}
 }
 
+/*This function forms the base of the sorting part of the project.
+Here, it will check a few edgecases first. If the stack isn't sorted
+and only has two numbers, it will swap and return. If a stack has
+three numbers, it will throw it into a function created to sort just three.
+If neither of these apply, it will first form stack B. Once stack B is
+is formed, it will merge it back into A. After that is done, it will
+either rotate, or reverse rotate stack A until the smallest number is first.*/
 void	sort(t_stack **a)
 {
 	t_stack	*b;

@@ -6,7 +6,7 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/08 12:06:09 by owen          #+#    #+#                 */
-/*   Updated: 2025/02/18 15:47:33 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/25 15:55:00 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+/*Returns the size of the list.*/
 int	ps_lst_size(t_stack *list)
 {
 	int		size;
@@ -29,6 +30,7 @@ int	ps_lst_size(t_stack *list)
 	return (size);
 }
 
+/*Finds the last node in the given list.*/
 t_stack	*ps_lstlast(t_stack *lst)
 {
 	if (!lst)
@@ -38,6 +40,8 @@ t_stack	*ps_lstlast(t_stack *lst)
 	return (lst);
 }
 
+/*Adds a new node to the back of the list.
+If no list exists, the new node becomes the list.*/
 void	ps_lstadd_back(t_stack **lst, t_stack *new)
 {
 	t_stack	*old_tail;

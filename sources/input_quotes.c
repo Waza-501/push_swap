@@ -6,44 +6,11 @@
 /*   By: owhearn <owhearn@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/24 11:25:02 by owhearn       #+#    #+#                 */
-/*   Updated: 2025/02/24 11:37:06 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/25 17:08:34 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	error_exit_qt(t_stack **one, char **data)
-{
-	int		idx;
-
-	idx = 0;
-	write(2, "Error\n", 6);
-	if (one != NULL)
-		free_stack(one);
-	if (data != NULL || data[idx] != NULL)
-	{
-		while (data[idx])
-		{
-			free(data[idx]);
-			idx++;
-		}
-		free(data);
-		data = NULL;
-	}
-	exit(1);
-}
-
-void	qt_input_check(char **str)
-{
-	int		idx;
-
-	idx = 1;
-	while (str[idx])
-	{
-		ps_atoi_qt(str[idx], str);
-		idx++;
-	}
-}
 
 /*This modified atoi will correctly exit out if an invalid character is found.
 This specific one is made to be able to free the split source string as well.*/
@@ -65,13 +32,33 @@ int	ps_atoi_qt(const char *str, char **data)
 	while (*str)
 	{
 		if (!ft_isdigit(*str))
-			error_exit_qt(NULL, data);
+			error_exit(NULL, data);
 		ret = ret * 10 + (*str - '0');
+		if ((ret * negative) > INT_MAX || (ret * negative) < INT_MIN)
+			error_exit(NULL, NULL);
 		str++;
 	}
 	return (ret * negative);
 }
 
+/*Function to feed the array returned from split into a
+modified atoi in order to filter out incorrect data*/
+void	qt_input_check(char **str)
+{
+	int		idx;
+
+	idx = 0;
+	while (str[idx])
+	{
+		ps_atoi_qt(str[idx], str);
+		idx++;
+	}
+}
+
+/*If the input is given between quotation marks,
+this function is used to split it into seperate inputs.
+If it fails, it will properly exit out.
+This version will only work with spaces.*/
 void	argv_quotes(char *str, t_stack **a)
 {
 	char	**new;
@@ -79,7 +66,7 @@ void	argv_quotes(char *str, t_stack **a)
 
 	new = ft_split(str, ' ');
 	if (!new)
-		error_exit(NULL);
+		error_exit(NULL, NULL);
 	idx = 0;
 	qt_input_check(new);
 	while (new[idx])

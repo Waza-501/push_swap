@@ -6,7 +6,7 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/06 13:50:39 by owen          #+#    #+#                 */
-/*   Updated: 2025/02/19 14:07:16 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/25 16:14:39 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <unistd.h>
 #include <stdio.h>
 
+/**/
 t_stack	*find_last(t_stack *stack)
 {
 	while (stack && stack->next != NULL)

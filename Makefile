@@ -1,4 +1,4 @@
-NAME			:=	push_swap.a
+NAME			:=	push_swap
 CC				:=	cc
 CFLAGS			:=	-Wall -Werror -Wextra
 MUTE			:=	--no-print-directory
@@ -8,20 +8,21 @@ LIBFT_NAME 		:= libft.a
 LIBFT 			:= $(addprefix $(LIBFT_FOLDER), $(LIBFT_NAME))
 
 SOURCES_DIR		:=	sources/
-SOURCES			:=	input_handling.c\
+SOURCES			:=	find_best_rtype.c\
+					find_target.c\
+					free_and_exit.c\
+					input_handling.c\
 					input_quotes.c\
 					lists.c\
 					push_swap.c\
-					sort_algorithm_calc.c\
-					sort_algorithm_exe_a.c\
-					sort_algorithm_exe_b.c\
+					rtype_exec_a.c\
+					rtype_exec_b.c\
 					sort_algorithm_utils.c\
 					sort_algorithm.c\
 					sort_push.c\
 					sort_rotate.c\
 					sort_rrotate.c\
 					sort_swap.c\
-					sort.c\
 					struct_tools.c\
 					utilities.c\
 
@@ -56,8 +57,7 @@ clean:
 fclean:		clean
 			@rm -rf $(NAME)
 			@make $(MUTE) -C $(LIBFT_FOLDER) fclean
-			if [ -d "$(OBJECTS_DIR)" ]; then rm -drf $(OBJECTS_DIR); fi
-			@echo ""
+			@if [ -d "$(OBJECTS_DIR)" ]; then rm -drf $(OBJECTS_DIR); fi
 			@echo Cleaned up all created files.
 
 re:	fclean all

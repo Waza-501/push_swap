@@ -6,7 +6,7 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/08 11:28:46 by owen          #+#    #+#                 */
-/*   Updated: 2025/02/24 12:33:13 by owen          ########   odam.nl         */
+/*   Updated: 2025/02/25 17:33:32 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 # include "../libraries/libft/libft.h"
 # include <stdio.h>
+# include <limits.h>
 
 typedef struct s_stack
 {
@@ -60,7 +61,7 @@ int			calc_normal(t_stack *src, t_stack *dst, int t_value);
 int			calc_reverse_src(t_stack *src, t_stack *dst, int t_value);
 int			calc_reverse_dst(t_stack *src, t_stack *dst, int t_value);
 int			calc_reverse(t_stack *src, t_stack *dst, int t_value);
-int			find_rotate_type(t_stack *src, t_stack *dst);
+int			find_best_rtype(t_stack *src, t_stack *dst);
 int			find_target(t_stack *stack, int target);
 int			find_bottom(t_stack *a);
 int			find_top(t_stack *a);
@@ -68,7 +69,7 @@ int			find_target_pos(t_stack *stack, int target);
 int			stack_low_high(t_stack *stack, int target);
 int			stack_high_low(t_stack *stack, int target);
 int			find_pos_in_stack(t_stack *stack, int target);
-void	argv_quotes(char *str, t_stack **a);
+void		argv_quotes(char *str, t_stack **a);
 void		sort(t_stack **a);
 int			ps_lst_size(t_stack *list);
 t_stack		*find_last(t_stack *stack);
@@ -78,7 +79,7 @@ int			ps_atoi(const char *str);
 void		free_strarr(char **str);
 void		free_stack(t_stack **target);
 void		qt_input_check(char **strarr);
-int			compare_val(t_stack *a, int ref);
+int			compare_value(t_stack *a, int ref);
 int			checksorted(t_stack *a);
 void		input_check(int argc, char **argv);
 t_stack		*ps_lstlast(t_stack *lst);
@@ -86,8 +87,7 @@ void		ps_lstadd_back(t_stack **lst, t_stack *new);
 t_stack		*fill_stack(int content);
 t_stack		*init_stack(void);
 t_stack		*process_input(int argc, char **argv);
-void		error_exit_qt(t_stack **one, char **data);
-void		error_exit(t_stack **one);
+void		error_exit(t_stack **one, char **data);
 
 void		pprint_stack(t_stack *a, char s);
 
