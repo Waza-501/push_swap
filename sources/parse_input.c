@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   input_handling.c                                   :+:    :+:            */
+/*   parse_input.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/06 13:30:32 by owen          #+#    #+#                 */
-/*   Updated: 2025/02/25 17:33:34 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/25 18:01:26 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ t_stack	*process_input(int argc, char **argv)
 		input_check(argc, argv);
 		while (idx < argc)
 		{
-			ps_lstadd_back(&a, fill_stack(ps_atoi(argv[idx])));
+			ps_lstadd_back(&a, create_node(ps_atoi(argv[idx])));
 			idx++;
 		}
 	}

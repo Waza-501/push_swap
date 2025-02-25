@@ -1,6 +1,6 @@
 NAME			:=	push_swap
 CC				:=	cc
-CFLAGS			:=	-Wall -Werror -Wextra
+CFLAGS			:=	-Wall -Werror -Wextra -fsanitize=address -g
 MUTE			:=	--no-print-directory
 
 LIBFT_FOLDER 	:= libraries/libft/
@@ -9,21 +9,20 @@ LIBFT 			:= $(addprefix $(LIBFT_FOLDER), $(LIBFT_NAME))
 
 SOURCES_DIR		:=	sources/
 SOURCES			:=	find_best_rtype.c\
+					find_target_utils.c\
 					find_target.c\
 					free_and_exit.c\
-					input_handling.c\
-					input_quotes.c\
 					lists.c\
+					parse_input.c\
+					parse_quotes.c\
 					push_swap.c\
 					rtype_exec_a.c\
 					rtype_exec_b.c\
-					sort_algorithm_utils.c\
 					sort_algorithm.c\
 					sort_push.c\
 					sort_rotate.c\
 					sort_rrotate.c\
 					sort_swap.c\
-					struct_tools.c\
 					utilities.c\
 
 OBJECTS_DIR		:=	objects/

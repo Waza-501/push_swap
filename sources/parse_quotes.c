@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   input_quotes.c                                     :+:    :+:            */
+/*   parse_quotes.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: owhearn <owhearn@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/24 11:25:02 by owhearn       #+#    #+#                 */
-/*   Updated: 2025/02/25 17:08:34 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/25 18:01:26 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	ps_atoi_qt(const char *str, char **data)
 
 /*Function to feed the array returned from split into a
 modified atoi in order to filter out incorrect data*/
-void	qt_input_check(char **str)
+void	input_check_qt(char **str)
 {
 	int		idx;
 
@@ -68,10 +68,10 @@ void	argv_quotes(char *str, t_stack **a)
 	if (!new)
 		error_exit(NULL, NULL);
 	idx = 0;
-	qt_input_check(new);
+	input_check_qt(new);
 	while (new[idx])
 	{
-		ps_lstadd_back(a, fill_stack(ps_atoi(new[idx])));
+		ps_lstadd_back(a, create_node(ps_atoi(new[idx])));
 		idx++;
 	}
 	free_strarr(new);

@@ -6,7 +6,7 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/08 12:06:09 by owen          #+#    #+#                 */
-/*   Updated: 2025/02/25 15:55:00 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/25 18:01:26 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,29 @@ t_stack	*ps_lstlast(t_stack *lst)
 	while (lst->next != NULL)
 		lst = lst->next;
 	return (lst);
+}
+
+t_stack	*find_last(t_stack *stack)
+{
+	while (stack && stack->next != NULL)
+		stack = stack->next;
+	return (stack);
+}
+
+/*This function is used to set up a 
+new node with the content of argv[idx]*/
+t_stack	*create_node(int content)
+{
+	t_stack		*new;
+
+	new = (t_stack *)malloc(sizeof(t_stack));
+	if (!new)
+		return (NULL);
+	new->value = content;
+	new->type = STACK_A;
+	new->next = NULL;
+	new->prev = NULL;
+	return (new);
 }
 
 /*Adds a new node to the back of the list.

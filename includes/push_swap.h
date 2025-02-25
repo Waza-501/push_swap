@@ -6,7 +6,7 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/08 11:28:46 by owen          #+#    #+#                 */
-/*   Updated: 2025/02/25 17:33:32 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/25 18:01:26 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,17 +78,14 @@ int			ps_atoi_qt(const char *str, char **data);
 int			ps_atoi(const char *str);
 void		free_strarr(char **str);
 void		free_stack(t_stack **target);
-void		qt_input_check(char **strarr);
+void		input_check_qt(char **strarr);
 int			compare_value(t_stack *a, int ref);
 int			checksorted(t_stack *a);
 void		input_check(int argc, char **argv);
 t_stack		*ps_lstlast(t_stack *lst);
 void		ps_lstadd_back(t_stack **lst, t_stack *new);
-t_stack		*fill_stack(int content);
-t_stack		*init_stack(void);
+t_stack		*create_node(int content);
 t_stack		*process_input(int argc, char **argv);
 void		error_exit(t_stack **one, char **data);
-
-void		pprint_stack(t_stack *a, char s);
 
 #endif

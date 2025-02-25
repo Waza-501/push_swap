@@ -3,54 +3,69 @@
 /*                                                        ::::::::            */
 /*   find_target.c                                      :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: owhearn <owhearn@student.codam.nl>           +#+                     */
+/*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/02/25 16:35:22 by owhearn       #+#    #+#                 */
-/*   Updated: 2025/02/25 16:36:04 by owhearn       ########   odam.nl         */
+/*   Created: 2025/01/17 17:25:05 by owen          #+#    #+#                 */
+/*   Updated: 2025/02/25 17:58:07 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	find_target(t_stack *stack, int target)
+/**/
+int	stack_low_high(t_stack *stack, int target)
 {
+	t_stack	*temp;
 	int		ret;
 
-	ret = 0;
-	while (stack && stack->value != target)
+	ret = 1;
+	if (target < stack->value && target > ps_lstlast(stack)->value)
+		return (0);
+	else if (target > find_top(stack) || target < find_bottom(stack))
+		return (find_target(stack, find_bottom(stack)));
+	else
 	{
-		ret++;
-		stack = stack->next;
+		temp = stack->next;
+		while (stack->value > target || temp->value < target)
+		{
+			stack = stack->next;
+			temp = stack->next;
+			ret++;
+		}
 	}
 	return (ret);
 }
 
-int	find_bottom(t_stack *stack)
+int	stack_high_low(t_stack *stack, int target)
 {
 	int		ret;
 
-	ret = stack->value;
-	stack = stack->next;
-	while (stack != NULL)
+	ret = 1;
+	if (target > stack->value && target < ps_lstlast(stack)->value)
+		return (0);
+	else if (target > find_top(stack) || target < find_bottom(stack))
+		return (find_target(stack, find_top(stack)));
+	else
 	{
-		if (stack->value < ret)
-			ret = stack->value;
-		stack = stack->next;
+		while (stack->value < target || stack->next->value > target)
+		{
+			stack = stack->next;
+			ret++;
+		}
 	}
 	return (ret);
 }
 
-int	find_top(t_stack *stack)
+/*This function is used to find the location where target
+should end up in the destination stack.*/
+int	find_pos_in_stack(t_stack *stack, int target)
 {
 	int		ret;
 
-	ret = stack->value;
-	stack = stack->next;
-	while (stack != NULL)
-	{
-		if (stack->value > ret)
-			ret = stack->value;
-		stack = stack->next;
-	}
+	ret = -1;
+	if (stack->type == STACK_B)
+		return (stack_high_low(stack, target));
+	else if (stack->type == STACK_A)
+		return (stack_low_high(stack, target));
 	return (ret);
 }
