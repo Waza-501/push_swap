@@ -17,8 +17,6 @@ SOURCES			:=	find_best_rtype.c\
 					parse_input.c\
 					parse_quotes.c\
 					push_swap.c\
-					rtype_exec_a.c\
-					rtype_exec_b.c\
 					sort_algorithm.c\
 					sort_push.c\
 					sort_rotate.c\

@@ -6,7 +6,7 @@
 /*   By: owhearn <owhearn@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/15 13:55:07 by owhearn       #+#    #+#                 */
-/*   Updated: 2025/02/26 15:22:33 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/26 16:01:25 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,16 +46,12 @@ void	fill_stack_b(t_stack **a, t_stack **b)
 		while (i >= 0)
 		{
 			if (i == calc_normal(*a, *b, temp->value))
-				//i = b_execute_rarb(a, b, temp->value);
 				i = rt_src_dst(a, b, temp->value);
 			else if (i == calc_reverse_src(*a, *b, temp->value))
-				//i = b_execute_rrarb(a, b, temp->value);
 				i = rrt_src_rt_dst(a, b, temp->value);
 			else if (i == calc_reverse_dst(*a, *b, temp->value))
-				//i = b_execute_rarrb(a, b, temp->value);
 				i = rt_src_rrt_dst(a, b, temp->value);
 			else if (i == calc_reverse(*a, *b, temp->value))
-				//i = b_execute_rrarrb(a, b, temp->value);
 				i = rrt_src_dst(a, b, temp->value);
 			else
 				temp = temp->next;
@@ -98,16 +94,12 @@ void	merge_into_a(t_stack **a, t_stack **b)
 		while (i >= 0)
 		{
 			if (i == calc_normal(*b, *a, temp->value))
-				//i = a_execute_rarb(b, a, temp->value);
 				i = rt_src_dst(b, a, temp->value);
 			else if (i == calc_reverse_src(*b, *a, temp->value))
-				//i = a_execute_rarrb(b, a, temp->value);
 				i = rrt_src_rt_dst(b, a, temp->value);
 			else if (i == calc_reverse_dst(*b, *a, temp->value))
-				//i = a_execute_rrarb(b, a, temp->value);
 				i = rt_src_rrt_dst(b, a, temp->value);
 			else if (i == calc_reverse(*b, *a, temp->value))
-				//i = a_execute_rrarrb(b, a, temp->value);
 				i = rrt_src_dst(b, a, temp->value);
 			else
 				temp = temp->next;

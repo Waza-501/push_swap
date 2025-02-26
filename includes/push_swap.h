@@ -6,7 +6,7 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/08 11:28:46 by owen          #+#    #+#                 */
-/*   Updated: 2025/02/26 12:14:44 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/26 16:08:40 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,13 @@ typedef struct s_stack
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }	t_stack;
+
+
+/*sort_algorithm*/
+void		sort_three(t_stack **a);
+void		fill_stack_b(t_stack **a, t_stack **b);
+t_stack		*form_stack_b(t_stack **a);
+void		merge_into_a(t_stack **a, t_stack **b);
 
 /*push*/
 void		push_a(t_stack **a, t_stack **b);
@@ -53,14 +60,6 @@ int			rrt_src_dst(t_stack **src, t_stack **dst, int t_value);
 int			rt_src_rrt_dst(t_stack **src, t_stack **dst, int t_value);
 int			rrt_src_rt_dst(t_stack **src, t_stack **dst, int t_value);
 int			rt_src_dst(t_stack **src, t_stack **dst, int t_value);
-int			a_execute_rrarrb(t_stack **src, t_stack **dst, int t_value);
-int			a_execute_rarrb(t_stack **src, t_stack **dst, int t_value);
-int			a_execute_rrarb(t_stack **src, t_stack **dst, int t_value);
-int			a_execute_rarb(t_stack **src, t_stack **dst, int t_value);
-int			b_execute_rrarrb(t_stack **src, t_stack **dst, int t_value);
-int			b_execute_rarrb(t_stack **src, t_stack **dst, int t_value);
-int			b_execute_rrarb(t_stack **src, t_stack **dst, int t_value);
-int			b_execute_rarb(t_stack **src, t_stack **dst, int t_value);
 int			calc_normal(t_stack *src, t_stack *dst, int t_value);
 int			calc_reverse_src(t_stack *src, t_stack *dst, int t_value);
 int			calc_reverse_dst(t_stack *src, t_stack *dst, int t_value);
