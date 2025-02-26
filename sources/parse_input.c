@@ -6,7 +6,7 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/06 13:30:32 by owen          #+#    #+#                 */
-/*   Updated: 2025/02/26 17:10:53 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/26 17:31:54 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ void	input_check(int argc, char **argv)
 	idx = 1;
 	while (idx < argc)
 	{
+		if (ft_strlen(argv[idx]) == 0)
+			error_exit(NULL, NULL);
 		ps_atoi(argv[idx]);
 		idx++;
 	}

@@ -6,7 +6,7 @@
 /*   By: owhearn <owhearn@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/15 13:55:07 by owhearn       #+#    #+#                 */
-/*   Updated: 2025/02/26 17:11:04 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/26 17:38:27 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	sort_three(t_stack **a)
 /*This function will first check which number will result in the least amount of
 moves in order for it to be pushed to B. Once that is done, it will loop through
 the list until the result of one of the different calc functions matches i. */
-void	search_and_deploy(t_stack **src, t_stack **dst)
+void	find_optimal_move(t_stack **src, t_stack **dst)
 {
 	t_stack	*temp;
 	int		i;
@@ -58,7 +58,7 @@ to do this until either of the conditions are met.*/
 void	fill_stack_b(t_stack **a, t_stack **b)
 {
 	while (checksorted(*a) && ps_lst_size(*a) > 3)
-		search_and_deploy(a, b);
+		find_optimal_move(a, b);
 }
 
 /*This function pushes the first two (if posible) numbers to stack B.
@@ -84,5 +84,5 @@ void	merge_into_a(t_stack **a, t_stack **b)
 {
 	sort_three(a);
 	while (*b)
-		search_and_deploy(b, a);
+		find_optimal_move(b, a);
 }
