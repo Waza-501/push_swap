@@ -8,12 +8,12 @@ LIBFT_NAME 		:= libft.a
 LIBFT 			:= $(addprefix $(LIBFT_FOLDER), $(LIBFT_NAME))
 
 SOURCES_DIR		:=	sources/
-SOURCES			:=	find_best_rtype.c\
+SOURCES			:=	execute_moves.c\
+					find_best_rtype.c\
 					find_target_utils.c\
 					find_target.c\
 					free_and_exit.c\
 					lists.c\
-					new_exec.c\
 					parse_input.c\
 					parse_quotes.c\
 					push_swap.c\

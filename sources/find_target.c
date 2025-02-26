@@ -6,13 +6,12 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/17 17:25:05 by owen          #+#    #+#                 */
-/*   Updated: 2025/02/25 17:58:07 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/26 17:09:20 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/**/
 int	stack_low_high(t_stack *stack, int target)
 {
 	t_stack	*temp;

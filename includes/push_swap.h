@@ -6,7 +6,7 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/08 11:28:46 by owen          #+#    #+#                 */
-/*   Updated: 2025/02/26 16:08:40 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/26 17:12:46 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # define STACK_A -1
 
 # include "../libraries/libft/libft.h"
-# include <stdio.h>
 # include <limits.h>
 
 typedef struct s_stack
@@ -29,7 +28,6 @@ typedef struct s_stack
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }	t_stack;
-
 
 /*sort_algorithm*/
 void		sort_three(t_stack **a);

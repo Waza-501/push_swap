@@ -6,14 +6,11 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/06 13:30:32 by owen          #+#    #+#                 */
-/*   Updated: 2025/02/25 18:01:26 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/26 17:10:53 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdio.h>
 
 /*This function compares the value given to all subsequent values.
 If a duplicate is found, it will return an error.*/

@@ -6,12 +6,11 @@
 /*   By: owhearn <owhearn@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/15 13:55:07 by owhearn       #+#    #+#                 */
-/*   Updated: 2025/02/26 16:01:25 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/26 17:11:04 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 /*This function sorts three numbers from low to high.
 That is all it does. Nothing more.*/
@@ -28,35 +27,38 @@ void	sort_three(t_stack **a)
 		swap_a(a);
 }
 
-/*This function will first make sure the stack isn't
-sorted and has more than three remaining. After that, it will first
-check which number will result in the least amount of moves in order
-for it to be pushed to B. Once that is done, it will loop through the list
-until the result of the different calc functions matches i. It will continue
-to do this until either of the conditions are met.*/
-void	fill_stack_b(t_stack **a, t_stack **b)
+/*This function will first check which number will result in the least amount of
+moves in order for it to be pushed to B. Once that is done, it will loop through
+the list until the result of one of the different calc functions matches i. */
+void	search_and_deploy(t_stack **src, t_stack **dst)
 {
 	t_stack	*temp;
 	int		i;
 
-	while (checksorted(*a) && ps_lst_size(*a) > 3)
+	temp = *src;
+	i = find_best_rtype(*src, *dst);
+	while (i >= 0)
 	{
-		temp = *a;
-		i = find_best_rtype(*a, *b);
-		while (i >= 0)
-		{
-			if (i == calc_normal(*a, *b, temp->value))
-				i = rt_src_dst(a, b, temp->value);
-			else if (i == calc_reverse_src(*a, *b, temp->value))
-				i = rrt_src_rt_dst(a, b, temp->value);
-			else if (i == calc_reverse_dst(*a, *b, temp->value))
-				i = rt_src_rrt_dst(a, b, temp->value);
-			else if (i == calc_reverse(*a, *b, temp->value))
-				i = rrt_src_dst(a, b, temp->value);
-			else
-				temp = temp->next;
-		}
+		if (i == calc_normal(*src, *dst, temp->value))
+			i = rt_src_dst(src, dst, temp->value);
+		else if (i == calc_reverse_src(*src, *dst, temp->value))
+			i = rrt_src_rt_dst(src, dst, temp->value);
+		else if (i == calc_reverse_dst(*src, *dst, temp->value))
+			i = rt_src_rrt_dst(src, dst, temp->value);
+		else if (i == calc_reverse(*src, *dst, temp->value))
+			i = rrt_src_dst(src, dst, temp->value);
+		else
+			temp = temp->next;
 	}
+}
+
+/*This function will first make sure the stack isn't
+sorted and has more than three remaining. It will continue
+to do this until either of the conditions are met.*/
+void	fill_stack_b(t_stack **a, t_stack **b)
+{
+	while (checksorted(*a) && ps_lst_size(*a) > 3)
+		search_and_deploy(a, b);
 }
 
 /*This function pushes the first two (if posible) numbers to stack B.
@@ -76,34 +78,11 @@ t_stack	*form_stack_b(t_stack **a)
 }
 
 /*This function will slowly push everything in stack B back
-into stack A, after stack A is sorted. Since stack B is already
-sorted High to Low, most of the time it'll simply be a push_a call.
-Since the push is different, we are using a slightly altered
-version of b_execute, replacing Push B with Push A.
+into stack A, after stack A is sorted.
 It will continue until stack B is empty.*/
 void	merge_into_a(t_stack **a, t_stack **b)
 {
-	t_stack	*temp;
-	int		i;
-
 	sort_three(a);
 	while (*b)
-	{
-		temp = *b;
-		i = find_best_rtype(*b, *a);
-		while (i >= 0)
-		{
-			if (i == calc_normal(*b, *a, temp->value))
-				i = rt_src_dst(b, a, temp->value);
-			else if (i == calc_reverse_src(*b, *a, temp->value))
-				i = rrt_src_rt_dst(b, a, temp->value);
-			else if (i == calc_reverse_dst(*b, *a, temp->value))
-				i = rt_src_rrt_dst(b, a, temp->value);
-			else if (i == calc_reverse(*b, *a, temp->value))
-				i = rrt_src_dst(b, a, temp->value);
-			else
-				temp = temp->next;
-		}
-	}
+		search_and_deploy(b, a);
 }
-

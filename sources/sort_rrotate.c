@@ -6,12 +6,11 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/09 11:39:12 by owen          #+#    #+#                 */
-/*   Updated: 2025/02/19 12:08:47 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/26 17:12:05 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 void	rrotate(t_stack **stack)
 {

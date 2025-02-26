@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   new_exec.c                                         :+:    :+:            */
+/*   execute_moves.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: owhearn <owhearn@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/26 12:00:03 by owhearn       #+#    #+#                 */
-/*   Updated: 2025/02/26 13:19:39 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/26 17:09:52 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
+/*This function reverse rotates both src, and dst. It checks the flag set in the
+src stack to make sure it follows through with the correct moves.*/
 int	rrt_src_dst(t_stack **src, t_stack **dst, int t_value)
 {
 	while ((*src)->value != t_value && find_pos_in_stack((*dst), t_value) != 0)
@@ -38,6 +39,8 @@ int	rrt_src_dst(t_stack **src, t_stack **dst, int t_value)
 	return (FINISHED);
 }
 
+/*This function rotates src, and reverse rotates dst. It checks the flag set in
+the src stack to make sure it follows through with the correct moves.*/
 int	rt_src_rrt_dst(t_stack **src, t_stack **dst, int t_value)
 {
 	while ((*src)->value != t_value)
@@ -61,6 +64,8 @@ int	rt_src_rrt_dst(t_stack **src, t_stack **dst, int t_value)
 	return (FINISHED);
 }
 
+/*This function reverse rotates src, and rotates dst. It checks the flag set in
+the src stack to make sure it follows through with the correct moves.*/
 int	rrt_src_rt_dst(t_stack **src, t_stack **dst, int t_value)
 {
 	while ((*src)->value != t_value)
@@ -84,6 +89,8 @@ int	rrt_src_rt_dst(t_stack **src, t_stack **dst, int t_value)
 	return (FINISHED);
 }
 
+/*This function rotates both src, and dst. It checks the flag set in the
+src stack to make sure it follows through with the correct moves.*/
 int	rt_src_dst(t_stack **src, t_stack **dst, int t_value)
 {
 	while ((*src)->value != t_value && find_pos_in_stack((*dst), t_value) != 0)

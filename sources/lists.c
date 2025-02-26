@@ -6,13 +6,11 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/08 12:06:09 by owen          #+#    #+#                 */
-/*   Updated: 2025/02/26 11:40:23 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/26 17:09:41 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdlib.h>
-#include <stdio.h>
 
 /*Returns the size of the list.*/
 int	ps_lst_size(t_stack *list)

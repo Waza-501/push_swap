@@ -6,14 +6,11 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/06 12:30:58 by owen          #+#    #+#                 */
-/*   Updated: 2025/02/26 15:22:42 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/26 17:10:58 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
 
 /*This function forms the base of the sorting part of the project.
 Here, it will check a few edgecases first. If the stack isn't sorted

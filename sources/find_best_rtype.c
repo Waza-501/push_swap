@@ -6,12 +6,11 @@
 /*   By: owhearn <owhearn@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/18 12:04:39 by owhearn       #+#    #+#                 */
-/*   Updated: 2025/02/26 11:28:46 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/26 17:09:48 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 /*This function checks using reverse rotations for both stacks.*/
 int	calc_reverse(t_stack *src, t_stack *dst, int t_value)
