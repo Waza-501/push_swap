@@ -6,7 +6,7 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/08 12:06:09 by owen          #+#    #+#                 */
-/*   Updated: 2025/02/25 18:01:26 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/26 11:40:23 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	ps_lstadd_back(t_stack **lst, t_stack *new)
 {
 	t_stack	*old_tail;
 
-	if (!lst && !new)
+	if (!new)
 		return ;
 	if (!*lst)
 		*lst = new;

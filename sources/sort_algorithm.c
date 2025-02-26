@@ -6,13 +6,15 @@
 /*   By: owhearn <owhearn@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/15 13:55:07 by owhearn       #+#    #+#                 */
-/*   Updated: 2025/02/25 18:43:25 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/26 13:23:52 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
+/*This function sorts three numbers from low to high.
+That is all it does. Nothing more.*/
 void	sort_three(t_stack **a)
 {
 	int		index;
@@ -26,7 +28,12 @@ void	sort_three(t_stack **a)
 		swap_a(a);
 }
 
-/**/
+/*This function will first make sure the stack isn't
+sorted and has more than three remaining. After that, it will first
+check which number will result in the least amount of moves in order
+for it to be pushed to B. Once that is done, it will loop through the list
+until the result of the different calc functions matches i. It will continue
+to do this until either of the conditions are met.*/
 void	fill_stack_b(t_stack **a, t_stack **b)
 {
 	t_stack	*temp;
@@ -39,13 +46,17 @@ void	fill_stack_b(t_stack **a, t_stack **b)
 		while (i >= 0)
 		{
 			if (i == calc_normal(*a, *b, temp->value))
-				i = b_execute_rarb(a, b, temp->value);
+				//i = b_execute_rarb(a, b, temp->value);
+				i = rt_src_dst(a, b, temp->value);
 			else if (i == calc_reverse_src(*a, *b, temp->value))
-				i = b_execute_rrarb(a, b, temp->value);
+				//i = b_execute_rrarb(a, b, temp->value);
+				i = rrt_src_rt_dst(a, b, temp->value);
 			else if (i == calc_reverse_dst(*a, *b, temp->value))
-				i = b_execute_rarrb(a, b, temp->value);
+				//i = b_execute_rarrb(a, b, temp->value);
+				i = rt_src_rrt_dst(a, b, temp->value);
 			else if (i == calc_reverse(*a, *b, temp->value))
-				i = b_execute_rrarrb(a, b, temp->value);
+				//i = b_execute_rrarrb(a, b, temp->value);
+				i = rrt_src_dst(a, b, temp->value);
 			else
 				temp = temp->next;
 		}
@@ -87,13 +98,17 @@ void	merge_into_a(t_stack **a, t_stack **b)
 		while (i >= 0)
 		{
 			if (i == calc_normal(*b, *a, temp->value))
-				i = a_execute_rarb(b, a, temp->value);
+				//i = a_execute_rarb(b, a, temp->value);
+				i = rt_src_dst(b, a, temp->value);
 			else if (i == calc_reverse_src(*b, *a, temp->value))
-				i = a_execute_rarrb(b, a, temp->value);
+				//i = a_execute_rarrb(b, a, temp->value);
+				i = rrt_src_rt_dst(b, a, temp->value);
 			else if (i == calc_reverse_dst(*b, *a, temp->value))
-				i = a_execute_rrarb(b, a, temp->value);
+				//i = a_execute_rrarb(b, a, temp->value);
+				i = rt_src_rrt_dst(b, a, temp->value);
 			else if (i == calc_reverse(*b, *a, temp->value))
-				i = a_execute_rrarrb(b, a, temp->value);
+				//i = a_execute_rrarrb(b, a, temp->value);
+				i = rrt_src_dst(b, a, temp->value);
 			else
 				temp = temp->next;
 		}
@@ -113,21 +128,14 @@ void	sort(t_stack **a)
 
 	if (ps_lst_size((*a)) == 2)
 		return (swap_a(a));
-	else if (ps_lst_size((*a)) == 3)
-		sort_three(a);
+	if (ps_lst_size((*a)) == 3)
+		return (sort_three(a));
+	b = form_stack_b(a);
+	merge_into_a(a, &b);
+	if (find_target(*a, find_bottom(*a)) < ps_lst_size(*a) / 2)
+		while ((*a)->value != find_bottom(*a))
+			rotate_a(a);
 	else
-	{
-		b = form_stack_b(a);
-		merge_into_a(a, &b);
-		if (find_target(*a, find_bottom(*a)) < ps_lst_size(*a) / 2)
-		{
-			while ((*a)->value != find_bottom(*a))
-				rotate_a(a);
-		}
-		else
-		{
-			while ((*a)->value != find_bottom(*a))
-				rrotate_a(a);
-		}
-	}
+		while ((*a)->value != find_bottom(*a))
+			rrotate_a(a);
 }

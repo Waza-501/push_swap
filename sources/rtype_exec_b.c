@@ -6,7 +6,7 @@
 /*   By: owhearn <owhearn@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/18 12:54:20 by owhearn       #+#    #+#                 */
-/*   Updated: 2025/02/25 17:58:57 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/26 11:55:07 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,11 @@ int	b_execute_rrarrb(t_stack **src, t_stack **dst, int t_value)
 	while ((*src)->value != t_value && find_pos_in_stack((*dst), t_value) != 0)
 		rrotate_both(src, dst);
 	if ((*src)->value != t_value)
-	{
 		while ((*src)->value != t_value)
 			rrotate_a(src);
-	}
 	else if (find_pos_in_stack((*dst), t_value) != 0)
-	{
 		while (find_pos_in_stack((*dst), t_value) != 0)
 			rrotate_b(dst);
-	}
 	push_b(dst, src);
 	return (FINISHED);
 }
@@ -56,15 +52,11 @@ int	b_execute_rarb(t_stack **src, t_stack **dst, int t_value)
 	while ((*src)->value != t_value && find_pos_in_stack((*dst), t_value) != 0)
 		rotate_both(src, dst);
 	if ((*src)->value != t_value)
-	{
 		while ((*src)->value != t_value)
 			rotate_a(src);
-	}
 	else if (find_pos_in_stack((*dst), t_value) != 0)
-	{
 		while (find_pos_in_stack((*dst), t_value) != 0)
 			rotate_b(dst);
-	}
 	push_b(dst, src);
 	return (FINISHED);
 }

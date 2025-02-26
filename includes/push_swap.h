@@ -6,7 +6,7 @@
 /*   By: owen <owen@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/08 11:28:46 by owen          #+#    #+#                 */
-/*   Updated: 2025/02/25 18:01:26 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/26 12:14:44 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,10 @@ void		rrotate_a(t_stack **a);
 void		rrotate_b(t_stack **b);
 void		rrotate_both(t_stack **a, t_stack **b);
 
+int			rrt_src_dst(t_stack **src, t_stack **dst, int t_value);
+int			rt_src_rrt_dst(t_stack **src, t_stack **dst, int t_value);
+int			rrt_src_rt_dst(t_stack **src, t_stack **dst, int t_value);
+int			rt_src_dst(t_stack **src, t_stack **dst, int t_value);
 int			a_execute_rrarrb(t_stack **src, t_stack **dst, int t_value);
 int			a_execute_rarrb(t_stack **src, t_stack **dst, int t_value);
 int			a_execute_rrarb(t_stack **src, t_stack **dst, int t_value);

@@ -6,14 +6,14 @@
 /*   By: owhearn <owhearn@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/02/18 12:04:39 by owhearn       #+#    #+#                 */
-/*   Updated: 2025/02/25 16:33:38 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/26 11:28:46 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-/*calc_reverse*/
+/*This function checks using reverse rotations for both stacks.*/
 int	calc_reverse(t_stack *src, t_stack *dst, int t_value)
 {
 	int	i;
@@ -38,7 +38,8 @@ int	calc_reverse(t_stack *src, t_stack *dst, int t_value)
 	return (i);
 }
 
-/*calc_reverse_dst*/
+/*This function checks using the regular rotation for
+stack src and the reverse rotation for stack dsc*/
 int	calc_reverse_dst(t_stack *src, t_stack *dst, int t_value)
 {
 	int	i;
@@ -59,7 +60,8 @@ int	calc_reverse_dst(t_stack *src, t_stack *dst, int t_value)
 	return (i);
 }
 
-/*calc_reverse_src*/
+/*This function checks using the regular rotation for
+stack dst and the reverse rotation for stack src*/
 int	calc_reverse_src(t_stack *src, t_stack *dst, int t_value)
 {
 	int	i;
@@ -80,7 +82,7 @@ int	calc_reverse_src(t_stack *src, t_stack *dst, int t_value)
 	return (i);
 }
 
-/*calc_normal*/
+/*This function checks using regular rotations for both stacks.*/
 int	calc_normal(t_stack *src, t_stack *dst, int t_value)
 {
 	int	i;
@@ -101,6 +103,9 @@ int	calc_normal(t_stack *src, t_stack *dst, int t_value)
 	return (i);
 }
 
+/*This function will loop through the list, calculating the amount of moves
+it would take depending on the type of rotations used, to get the number
+from its current spot in stack src, to the correct location is stack dst.*/
 int	find_best_rtype(t_stack *src, t_stack *dst)
 {
 	t_stack	*temp;

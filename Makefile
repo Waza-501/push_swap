@@ -13,6 +13,7 @@ SOURCES			:=	find_best_rtype.c\
 					find_target.c\
 					free_and_exit.c\
 					lists.c\
+					new_exec.c\
 					parse_input.c\
 					parse_quotes.c\
 					push_swap.c\
