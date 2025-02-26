@@ -6,7 +6,7 @@
 /*   By: owhearn <owhearn@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/01/15 13:55:07 by owhearn       #+#    #+#                 */
-/*   Updated: 2025/02/26 13:23:52 by owhearn       ########   odam.nl         */
+/*   Updated: 2025/02/26 15:22:33 by owhearn       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,27 +115,3 @@ void	merge_into_a(t_stack **a, t_stack **b)
 	}
 }
 
-/*This function forms the base of the sorting part of the project.
-Here, it will check a few edgecases first. If the stack isn't sorted
-and only has two numbers, it will swap and return. If a stack has
-three numbers, it will throw it into a function created to sort just three.
-If neither of these apply, it will first form stack B. Once stack B is
-is formed, it will merge it back into A. After that is done, it will
-either rotate, or reverse rotate stack A until the smallest number is first.*/
-void	sort(t_stack **a)
-{
-	t_stack	*b;
-
-	if (ps_lst_size((*a)) == 2)
-		return (swap_a(a));
-	if (ps_lst_size((*a)) == 3)
-		return (sort_three(a));
-	b = form_stack_b(a);
-	merge_into_a(a, &b);
-	if (find_target(*a, find_bottom(*a)) < ps_lst_size(*a) / 2)
-		while ((*a)->value != find_bottom(*a))
-			rotate_a(a);
-	else
-		while ((*a)->value != find_bottom(*a))
-			rrotate_a(a);
-}
